@@ -1,46 +1,77 @@
 import React from 'react';
-import { verifiedMetrics } from '../data/portfolioData';
-import { Award, BookOpen, Globe2, Layers, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, GraduationCap, Award, Globe, ShieldCheck } from 'lucide-react';
 
-export default function MetricsStrip() {
-  const icons = [BookOpen, Award, Globe2, Layers];
-  const accents = ['text-[#D4FF00]', 'text-[#A855F7]', 'text-[#38BDF8]', 'text-[#D4FF00]'];
-  const borderAccents = ['group-hover:border-[#D4FF00]/40', 'group-hover:border-[#A855F7]/40', 'group-hover:border-[#38BDF8]/40', 'group-hover:border-[#D4FF00]/40'];
-
+// The exact StatsCard component from the user's uploaded Glassy Dashboard V5 screenshot!
+const StatsCard = ({ title, value, change, icon: Icon, detail }) => {
   return (
-    <div className="border-y border-[#1B202D] bg-[#0A0C12]/90 backdrop-blur-xl relative z-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {verifiedMetrics.map((item, index) => {
-            const Icon = icons[index];
-            const accent = accents[index];
-            const borderAccent = borderAccents[index];
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
+      className="glass-card p-6 rounded-2xl border border-white/15 relative overflow-hidden group"
+    >
+      <div className="flex items-start justify-between">
+        <div className="space-y-1">
+          <p className="text-sm text-white/60 font-medium">{title}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{value}</h2>
+          <p className="flex items-center gap-1 text-xs sm:text-sm text-emerald-400 font-mono font-medium pt-1">
+            <ArrowUpRight size={16} /> {change}
+          </p>
+        </div>
 
-            return (
-              <div
-                key={item.label}
-                className={`p-5 rounded-2xl obsidian-card relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 border border-[#1B202D] ${borderAccent}`}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-mono text-[#8E97AB] flex items-center gap-1.5">
-                    <Icon className={`w-4 h-4 ${accent}`} />
-                    <span>{item.label}</span>
-                  </span>
-                  <TrendingUp className="w-3.5 h-3.5 text-[#475569] group-hover:text-[#D4FF00] transition-colors" />
-                </div>
-
-                <div className="text-2xl sm:text-3xl font-bold font-display text-white tracking-tight">
-                  {item.value}
-                </div>
-
-                <div className="text-xs text-[#94A3B8] mt-1 line-clamp-1">
-                  {item.detail}
-                </div>
-              </div>
-            );
-          })}
+        <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#FFA800] group-hover:scale-110 group-hover:bg-[#FF6B35]/20 group-hover:border-[#FF6B35]/40 transition-all duration-300">
+          <Icon className="w-5 h-5" />
         </div>
       </div>
-    </div>
+
+      <div className="mt-3 pt-3 border-t border-white/10 text-[11px] text-white/50 line-clamp-1">
+        {detail}
+      </div>
+    </motion.div>
+  );
+};
+
+export default function MetricsStrip() {
+  const stats = [
+    {
+      title: "Academic Standing",
+      value: "8.6 / 10",
+      change: "+Top 5% Tier",
+      icon: GraduationCap,
+      detail: "B.Tech CSE @ Padmasri Dr. B.V. Raju Institute of Technology"
+    },
+    {
+      title: "Hackathon Performance",
+      value: "SIH Level 2",
+      change: "+National Rank",
+      icon: Award,
+      detail: "Smart India Hackathon 2024 Adaptive Signal Algorithm"
+    },
+    {
+      title: "API Orchestration",
+      value: "6 Live Services",
+      change: "100% Up",
+      icon: Globe,
+      detail: "Amadeus, OpenWeather, Foursquare, VisualCrossing, Gemini"
+    },
+    {
+      title: "Industry Credential",
+      value: "Agentforce",
+      change: "ID: 7198308",
+      icon: ShieldCheck,
+      detail: "Salesforce Certified Agentforce Specialist (Dec 2025)"
+    }
+  ];
+
+  return (
+    <section className="py-8 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {stats.map((stat) => (
+            <StatsCard key={stat.title} {...stat} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

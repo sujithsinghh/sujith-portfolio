@@ -24,30 +24,30 @@ export default function ProjectModal({ project, onClose }) {
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl animate-fadeIn">
       {/* Modal Dialog Card */}
       <div 
-        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#0C0E14] border border-[#1B202D] rounded-3xl p-6 sm:p-8 shadow-2xl text-left"
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto glass-card rounded-3xl p-6 sm:p-8 shadow-2xl text-left border border-white/20"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl bg-[#141822] border border-[#1B202D] text-[#8E97AB] hover:text-[#D4FF00] hover:border-[#D4FF00]/40 transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-xl bg-white/10 border border-white/20 text-white/70 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Modal Header */}
-        <div className="space-y-2 pb-6 border-b border-[#1B202D]">
-          <span className="inline-block px-3 py-1 rounded-full bg-[#D4FF00]/10 border border-[#D4FF00]/25 text-xs font-mono text-[#D4FF00]">
+        <div className="space-y-2 pb-6 border-b border-white/10">
+          <span className="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-[#FFA800] font-semibold">
             {project.category}
           </span>
           <h3 className="text-2xl sm:text-3xl font-bold font-display text-white">
             {project.title}
           </h3>
-          <p className="text-sm text-[#94A3B8] leading-relaxed">
+          <p className="text-sm text-white/70 leading-relaxed">
             {project.tagline || project.shortDescription}
           </p>
           
@@ -58,7 +58,7 @@ export default function ProjectModal({ project, onClose }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-mono font-medium cyber-dock hover:border-[#D4FF00]/50 hover:text-[#D4FF00] text-white px-4 py-2 rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-mono font-medium btn-glass-secondary px-4 py-2 rounded-xl transition-colors"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>GitHub Repository</span>
@@ -69,7 +69,7 @@ export default function ProjectModal({ project, onClose }) {
                 href={project.liveDemo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-mono font-bold btn-volt px-4 py-2 rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-mono font-bold btn-glass-primary px-4 py-2 rounded-xl transition-colors"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span>Live Demonstration</span>
@@ -81,20 +81,20 @@ export default function ProjectModal({ project, onClose }) {
         {/* Modal Body */}
         <div className="py-6 space-y-6">
           
-          {/* Architecture Details if present */}
+          {/* Architecture Details */}
           {project.architectureHighlights && (
             <div className="space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-[#D4FF00] flex items-center gap-2">
-                <Layers className="w-3.5 h-3.5 text-[#D4FF00]" />
+              <h4 className="text-xs font-mono uppercase tracking-wider text-[#FFA800] flex items-center gap-2">
+                <Layers className="w-3.5 h-3.5 text-[#FFA800]" />
                 <span>System Architecture Highlights</span>
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 {project.architectureHighlights.map((step, idx) => (
-                  <div key={idx} className="p-3.5 rounded-xl bg-white/5 border border-[#1B202D] space-y-1">
-                    <span className="font-mono text-[#D4FF00] uppercase text-[10px] tracking-wider block font-bold">
+                  <div key={idx} className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
+                    <span className="font-mono text-[#FFA800] uppercase text-[10px] tracking-wider block font-bold">
                       Step 0{idx + 1}: {step.title}
                     </span>
-                    <p className="text-[#C2C9D6] leading-relaxed text-[11px]">
+                    <p className="text-white/80 leading-relaxed text-[11px]">
                       {step.desc}
                     </p>
                   </div>
@@ -106,14 +106,14 @@ export default function ProjectModal({ project, onClose }) {
           {/* Key Features List */}
           {project.keyFeatures && (
             <div className="space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-[#A855F7] flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#A855F7]" />
+              <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Key Implemented Capabilities</span>
               </h4>
               <ul className="space-y-2">
                 {project.keyFeatures.map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#C2C9D6]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D4FF00] mt-2 shrink-0"></span>
+                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/80">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 shrink-0"></span>
                     <span>{feat}</span>
                   </li>
                 ))}
@@ -124,13 +124,13 @@ export default function ProjectModal({ project, onClose }) {
           {/* Technical Challenges & Solutions */}
           {project.challenges && (
             <div className="space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-[#F59E0B] flex items-center gap-2">
-                <AlertCircle className="w-3.5 h-3.5 text-[#F59E0B]" />
+              <h4 className="text-xs font-mono uppercase tracking-wider text-[#FFA800] flex items-center gap-2">
+                <AlertCircle className="w-3.5 h-3.5 text-[#FFA800]" />
                 <span>Engineering Challenges Solved</span>
               </h4>
               <div className="space-y-2">
                 {project.challenges.map((ch, idx) => (
-                  <div key={idx} className="p-3 rounded-xl bg-[#14120E] border border-[#382E1E] text-xs text-[#E0C9A6] leading-relaxed">
+                  <div key={idx} className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-white/80 leading-relaxed">
                     {ch}
                   </div>
                 ))}
@@ -140,14 +140,14 @@ export default function ProjectModal({ project, onClose }) {
 
           {/* Technologies Used Grid */}
           <div className="space-y-3 pt-2">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-[#7E869B]">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-white/50">
               Verified Tech Stack
             </h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded-lg bg-[#141822] border border-[#1B202D] text-xs font-mono text-[#CBD5E1]"
+                  className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-white/80"
                 >
                   {tech}
                 </span>
@@ -158,10 +158,10 @@ export default function ProjectModal({ project, onClose }) {
         </div>
 
         {/* Modal Footer */}
-        <div className="pt-4 border-t border-[#1B202D] flex justify-end">
+        <div className="pt-4 border-t border-white/10 flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2 text-xs font-bold btn-volt rounded-xl transition-colors cursor-pointer"
+            className="px-5 py-2 text-xs font-bold btn-glass-primary rounded-xl transition-colors cursor-pointer"
           >
             Close Details
           </button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Code, Layout, Server, Database, Brain, Wrench } from 'lucide-react';
 import { skillsData } from '../data/portfolioData';
 
@@ -8,8 +9,7 @@ export default function Skills() {
       title: "Programming Languages",
       icon: Code,
       items: skillsData.languages,
-      accent: "text-[#D4FF00]",
-      borderHover: "group-hover:border-[#D4FF00]/40",
+      accent: "text-[#FFA800]",
       badge: "Core Logic"
     },
     {
@@ -17,57 +17,52 @@ export default function Skills() {
       icon: Layout,
       items: skillsData.frontend,
       accent: "text-[#38BDF8]",
-      borderHover: "group-hover:border-[#38BDF8]/40",
       badge: "Reactive UI"
     },
     {
-      title: "Backend & Services",
+      title: "Backend & Microservices",
       icon: Server,
       items: skillsData.backend,
-      accent: "text-[#D4FF00]",
-      borderHover: "group-hover:border-[#D4FF00]/40",
-      badge: "REST & Microservices"
+      accent: "text-emerald-400",
+      badge: "REST & Scalability"
     },
     {
       title: "Databases & Cloud Hosting",
       icon: Database,
       items: skillsData.databaseCloud,
       accent: "text-[#F59E0B]",
-      borderHover: "group-hover:border-[#F59E0B]/40",
       badge: "Storage & Deploy"
     },
     {
       title: "Computer Vision & Applied AI",
       icon: Brain,
       items: skillsData.machineLearning,
-      accent: "text-[#A855F7]",
-      borderHover: "group-hover:border-[#A855F7]/40",
+      accent: "text-[#EC4899]",
       badge: "OpenCV & AlexNet"
     },
     {
       title: "Developer Tools & Practices",
       icon: Wrench,
       items: skillsData.toolsPractices,
-      accent: "text-[#EC4899]",
-      borderHover: "group-hover:border-[#EC4899]/40",
-      badge: "Git & Data Structures"
+      accent: "text-[#A78BFA]",
+      badge: "Git & DSA"
     },
   ];
 
   return (
-    <section id="skills" className="py-24 relative border-b border-[#1B202D] bg-[#08090C]">
+    <section id="skills" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#D4FF00] uppercase tracking-wider self-start px-3 py-1 rounded-full cyber-dock border border-[#D4FF00]/25">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4FF00] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#FFA800] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#FFA800]/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFA800] animate-pulse"></span>
             <span>Verified Technical Capabilities</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-display text-white tracking-tight">
-            Technical Stack & Toolkit
+            Technical Stack & Toolkit Matrix
           </h2>
-          <p className="text-sm sm:text-base text-[#94A3B8] max-w-2xl">
+          <p className="text-sm sm:text-base text-white/70 max-w-2xl">
             Grouped strictly by architectural layer and functional domain. Every technology listed has been utilized in real coursework, hackathons, or deployed applications.
           </p>
         </div>
@@ -77,22 +72,24 @@ export default function Skills() {
           {skillCategories.map((category) => {
             const Icon = category.icon;
             return (
-              <div
+              <motion.div
                 key={category.title}
-                className={`p-6 rounded-3xl obsidian-card flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 border border-[#1B202D] ${category.borderHover} group`}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
+                className="p-6 rounded-3xl glass-card flex flex-col justify-between border border-white/15 group"
               >
                 <div>
                   {/* Category Title */}
-                  <div className="flex items-center justify-between pb-3.5 border-b border-[#1B202D]">
+                  <div className="flex items-center justify-between pb-4 border-b border-white/10">
                     <div className="flex items-center gap-2.5">
-                      <div className={`p-2 rounded-xl bg-white/5 border border-white/10 ${category.accent}`}>
+                      <div className={`p-2.5 rounded-xl bg-white/5 border border-white/10 ${category.accent}`}>
                         <Icon className="w-4 h-4" />
                       </div>
                       <h3 className="font-bold font-display text-white text-base">
                         {category.title}
                       </h3>
                     </div>
-                    <span className="text-[10px] font-mono text-[#8E97AB] bg-white/5 px-2 py-0.5 rounded border border-white/5">
+                    <span className="text-[10px] font-mono text-white/60 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10">
                       {category.badge}
                     </span>
                   </div>
@@ -106,7 +103,7 @@ export default function Skills() {
                         <span
                           key={skillName}
                           title={skillContext || skillName}
-                          className="px-2.5 py-1 rounded-lg bg-[#0C0E14] border border-[#1B202D] text-xs font-mono text-[#CBD5E1] group-hover:border-[#D4FF00]/20 hover:text-[#D4FF00] transition-colors cursor-default"
+                          className="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-white/80 group-hover:border-white/20 hover:text-[#FFA800] hover:bg-white/10 transition-colors cursor-default"
                         >
                           {skillName}
                         </span>
@@ -115,11 +112,11 @@ export default function Skills() {
                   </div>
                 </div>
 
-                <div className="pt-4 mt-6 border-t border-[#1B202D]/60 flex items-center justify-between text-[11px] font-mono text-[#7E869B]">
-                  <span>{category.items.length} Verified Proficiencies</span>
-                  <span className={category.accent}>Active Skill</span>
+                <div className="pt-4 mt-6 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/50">
+                  <span>{category.items.length} Proficiencies</span>
+                  <span className={category.accent}>Active Toolkit</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -4,13 +4,6 @@
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --color-volt: #D4FF00;
-  --color-volt-hover: #C0E800;
-  --color-violet: #A855F7;
-  --color-obsidian: #08090C;
-  --color-surface: #0E1118;
-  --color-surface-hover: #141822;
-  --color-border: #1B202D;
 }
 
 :root {
@@ -18,81 +11,125 @@
 }
 
 html {
-  /* Natural responsive vertical scrolling without lock or jitter */
+  /* Natural responsive vertical scrolling without lock or stiffness */
   scroll-behavior: smooth;
   text-size-adjust: 100%;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #08090C;
-  color: #F1F4FA;
+  background-color: #080A12;
+  color: #F8FAFC;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Subtle micro-dot grid */
-.bg-grid-cyber {
-  background-image: radial-gradient(rgba(212, 255, 0, 0.07) 1px, transparent 1px);
+/* Atmospheric Penthouse Twilight Scenery Background */
+.bg-glassy-dashboard {
+  background-color: #070911;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(249, 115, 22, 0.18) 0px, transparent 50%),
+    radial-gradient(at 85% 15%, rgba(139, 92, 246, 0.22) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(236, 72, 153, 0.12) 0px, transparent 50%),
+    radial-gradient(at 90% 85%, rgba(245, 158, 11, 0.15) 0px, transparent 50%),
+    radial-gradient(at 15% 80%, rgba(16, 185, 129, 0.14) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Subtle architectural dot grid */
+.bg-grid-architectural {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
-/* Eye-Catching Obsidian Cards with Volt Hairline Glow on Hover */
-.obsidian-card {
-  background: #0E1118;
-  border: 1px solid #1B202D;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+/* Frosted Glass Cards (Glassy Dashboard V5) */
+.glass-card {
+  background: rgba(16, 20, 32, 0.65);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+    0 20px 40px -15px rgba(0, 0, 0, 0.65);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.obsidian-card:hover {
-  background: #131722;
-  border-color: rgba(212, 255, 0, 0.35);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 255, 0, 0.08);
+.glass-card:hover {
+  background: rgba(22, 28, 44, 0.78);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.35),
+    0 28px 55px -12px rgba(0, 0, 0, 0.75),
+    0 0 24px rgba(249, 115, 22, 0.14);
 }
 
-/* Floating Navigation Dock */
-.cyber-dock {
-  background: rgba(14, 17, 24, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+/* Floating Glass Island / Dock Navigation */
+.glass-dock {
+  background: rgba(14, 18, 29, 0.78);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+    0 16px 36px rgba(0, 0, 0, 0.55);
 }
 
-/* High-voltage Volt Accent Button */
-.btn-volt {
-  background-color: #D4FF00;
-  color: #08090C;
+/* Frosted Code & Studio Terminal Window */
+.glass-code-window {
+  background: rgba(9, 12, 19, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
+    0 24px 50px -10px rgba(0, 0, 0, 0.75);
+}
+
+/* Primary Glass Sunset Button */
+.btn-glass-primary {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8A00 50%, #FFA800 100%);
+  color: #FFFFFF;
   font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
+    0 8px 24px -4px rgba(255, 107, 53, 0.5);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px rgba(212, 255, 0, 0.25);
 }
 
-.btn-volt:hover {
-  background-color: #E2FF4D;
+.btn-glass-primary:hover {
+  background: linear-gradient(135deg, #FF7B47 0%, #FF991A 50%, #FFB51A 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(212, 255, 0, 0.4);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.5),
+    0 12px 32px -4px rgba(255, 107, 53, 0.7);
 }
 
-/* Ambient Lighting Gradients */
-.ambient-glow-volt {
-  background: radial-gradient(circle, rgba(212, 255, 0, 0.12) 0%, rgba(212, 255, 0, 0) 70%);
+/* Secondary Frosted Glass Button */
+.btn-glass-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  font-weight: 600;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ambient-glow-violet {
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, rgba(168, 85, 247, 0) 70%);
-}
-
-.ambient-glow-cyan {
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(6, 182, 212, 0) 70%);
+.btn-glass-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.35), 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Accessibility Focus States */
 :focus-visible {
-  outline: 2px solid #D4FF00;
+  outline: 2px solid #FF8A00;
   outline-offset: 3px;
 }
 
@@ -106,17 +143,18 @@ body {
   }
 }
 
-/* Minimal sleek scrollbar with volt hover */
+/* Sleek sunset scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #08090C;
+  background: #070911;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1B202D;
+  background: #1B2236;
   border-radius: 4px;
+  border: 2px solid #070911;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4FF00;
+  background: #FF6B35;
 }

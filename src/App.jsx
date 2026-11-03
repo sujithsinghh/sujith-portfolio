@@ -12,38 +12,38 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#08090C] text-[#F1F4FA] selection:bg-[#D4FF00] selection:text-black relative overflow-x-clip">
-      {/* Floating Cyber Dock Navigation */}
+    <div className="min-h-screen bg-glassy-dashboard bg-grid-architectural text-[#F8FAFC] selection:bg-[#FF8A00]/40 selection:text-white relative">
+      {/* Floating Glass Island Dock */}
       <Navbar />
 
       {/* Main Content Flow */}
-      <main>
-        {/* Eye-Catching Kinetic Hero with Photo 2 (White Shirt) & Live Code */}
+      <main className="relative z-10">
+        {/* Glass Dashboard Hero with Live Code & Visual Workstation */}
         <Hero />
 
-        {/* Verified Academic & Hackathon Metric Strip */}
+        {/* Frosted Glass Metrics Strip (StatsCard from Reel) */}
         <MetricsStrip />
 
-        {/* Engineering Philosophy & Academic Journey */}
+        {/* Engineering Philosophy & Narrative */}
         <About />
 
-        {/* Verified Technical Projects & Case Studies */}
+        {/* Interactive Glass Projects Studio */}
         <Projects />
 
-        {/* Signature Interactive Feature: Computer Vision Traffic Optimizer */}
+        {/* Traffic Operations Terminal Simulator */}
         <TrafficSimulator />
 
-        {/* Full-Stack & AI Skill Matrix */}
+        {/* Glass Bento Skill Matrix */}
         <Skills />
 
-        {/* Academic Milestones & Industry Certifications */}
+        {/* Education & Verified Certifications */}
         <EducationAndCerts />
 
-        {/* Direct Contact & Collaboration Form */}
+        {/* Direct Contact & Collaboration Center */}
         <Contact />
       </main>
 
-      {/* Modern Status Footer */}
+      {/* Glass Status Footer */}
       <Footer />
     </div>
   );
