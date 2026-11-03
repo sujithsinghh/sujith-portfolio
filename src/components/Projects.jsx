@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { ExternalLink, ChevronRight, Sliders, RefreshCw, Zap, Ban, Play } from 'lucide-react';
 import { projects } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
+import WanderAIStudio from './WanderAIStudio';
 
 export default function Projects() {
   const [activeModalProject, setActiveModalProject] = useState(null);
@@ -128,6 +129,12 @@ export default function Projects() {
                 </div>
 
                 <div className="pt-4 flex flex-wrap gap-2.5">
+                  <a
+                    href="#wander-studio"
+                    className="editorial-btn-dark !py-1.5 !px-3 !text-[11px]"
+                  >
+                    <span>Try Trip Planner Studio ↓</span>
+                  </a>
                   {flagshipTourist.github && (
                     <a
                       href={flagshipTourist.github}
@@ -140,7 +147,7 @@ export default function Projects() {
                   )}
                   <button
                     onClick={() => setActiveModalProject(flagshipTourist)}
-                    className="editorial-btn-dark !py-1.5 !px-3 !text-[11px] cursor-pointer"
+                    className="editorial-btn-outline !py-1.5 !px-3 !text-[11px] cursor-pointer"
                   >
                     <span>Full Specifications →</span>
                   </button>
@@ -164,6 +171,9 @@ export default function Projects() {
               </div>
 
             </div>
+
+            {/* Embedded Fig. 01B: Interactive WanderAI Trip Planner Studio */}
+            <WanderAIStudio />
           </article>
         )}
 
@@ -242,7 +252,7 @@ export default function Projects() {
             {/* ======================================================== */}
             {/* Embedded Fig. 02: Interactive Scientific Test Bench      */}
             {/* ======================================================== */}
-            <div id="simulator" className="mt-12 bg-white border border-[#E5E1D8] p-6 sm:p-8 shadow-sm">
+            <div id="simulator" className="mt-12 bg-white border border-[#E5E1D8] p-6 sm:p-8 shadow-sm scroll-mt-24">
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 border-b border-[#E5E1D8] gap-2 mb-6">
                 <div>
                   <span className="font-mono text-[10px] text-[#9E3514] uppercase tracking-wider block font-semibold">

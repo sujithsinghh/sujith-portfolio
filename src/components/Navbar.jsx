@@ -8,7 +8,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['projects', 'simulator', 'skills', 'credentials', 'contact'];
+      const sections = ['projects', 'wander-studio', 'simulator', 'skills', 'credentials', 'contact'];
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
@@ -26,10 +26,11 @@ export default function Navbar() {
 
   const navLinks = [
     { num: '01', name: 'Projects', href: '#projects', id: 'projects' },
-    { num: '02', name: 'Simulation', href: '#simulator', id: 'simulator' },
-    { num: '03', name: 'Index', href: '#skills', id: 'skills' },
-    { num: '04', name: 'Curriculum', href: '#credentials', id: 'credentials' },
-    { num: '05', name: 'Inquiry', href: '#contact', id: 'contact' },
+    { num: '02', name: 'Trip Studio', href: '#wander-studio', id: 'wander-studio' },
+    { num: '03', name: 'Traffic Sim', href: '#simulator', id: 'simulator' },
+    { num: '04', name: 'Index', href: '#skills', id: 'skills' },
+    { num: '05', name: 'Curriculum', href: '#credentials', id: 'credentials' },
+    { num: '06', name: 'Inquiry', href: '#contact', id: 'contact' },
   ];
 
   return (
