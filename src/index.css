@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-volt: #D4FF00;
+  --color-volt-hover: #C0E800;
+  --color-violet: #A855F7;
+  --color-obsidian: #08090C;
+  --color-surface: #0E1118;
+  --color-surface-hover: #141822;
+  --color-border: #1B202D;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  /* Natural responsive vertical scrolling without lock or jitter */
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #08090C;
+  color: #F1F4FA;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle micro-dot grid */
+.bg-grid-cyber {
+  background-image: radial-gradient(rgba(212, 255, 0, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Eye-Catching Obsidian Cards with Volt Hairline Glow on Hover */
+.obsidian-card {
+  background: #0E1118;
+  border: 1px solid #1B202D;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.obsidian-card:hover {
+  background: #131722;
+  border-color: rgba(212, 255, 0, 0.35);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 255, 0, 0.08);
+}
+
+/* Floating Navigation Dock */
+.cyber-dock {
+  background: rgba(14, 17, 24, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* High-voltage Volt Accent Button */
+.btn-volt {
+  background-color: #D4FF00;
+  color: #08090C;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(212, 255, 0, 0.25);
+}
+
+.btn-volt:hover {
+  background-color: #E2FF4D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(212, 255, 0, 0.4);
+}
+
+/* Ambient Lighting Gradients */
+.ambient-glow-volt {
+  background: radial-gradient(circle, rgba(212, 255, 0, 0.12) 0%, rgba(212, 255, 0, 0) 70%);
+}
+
+.ambient-glow-violet {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, rgba(168, 85, 247, 0) 70%);
+}
+
+.ambient-glow-cyan {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(6, 182, 212, 0) 70%);
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid #D4FF00;
+  outline-offset: 3px;
+}
+
+/* Accessibility Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Minimal sleek scrollbar with volt hover */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #08090C;
+}
+::-webkit-scrollbar-thumb {
+  background: #1B202D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4FF00;
+}
