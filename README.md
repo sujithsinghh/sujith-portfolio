@@ -1,97 +1,90 @@
-# Matta Sujith Singh — Professional Developer Portfolio
+# Matta Sujith Singh — Creative Engineering Portfolio
 
-An Awwwards-caliber, high-performance developer portfolio engineered with **React 18**, **Vite**, **Tailwind CSS**, and **Framer Motion**. Designed with an ultra-sleek **Glassy Dark Aesthetic** inspired by modern high-end developer dashboards, featuring real production codebases, verified academic achievements, and an authentic profile presentation.
+A modern, high-voltage developer portfolio designed for **Matta Sujith Singh** (B.Tech Computer Science & Engineering @ BVRIT, 8.6 CGPA, Class of 2027).
+
+Built with the **"Electric Acid Volt & Deep Obsidian"** creative engineering theme, featuring real-world project deep-dives, verified credentials, and an interactive **Live Traffic Signal Optimization Simulator**.
 
 ---
 
-## ⚡ Key Highlights & Architecture
+## ⚡ Visual Theme & Color Chemistry
 
-- **Personal Brand & Profile**: Authentic presentation of **Matta Sujith Singh** (B.Tech CSE undergraduate @ BVRIT, 8.6 CGPA, Smart India Hackathon '24 Level 2 Qualifier).
-- **Glassy Dashboard Aesthetic**: Deep obsidian canvas (`#050608`), frosted glass cards (`backdrop-blur-2xl`), specular highlight borders (`rgba(255, 255, 255, 0.08)`), and subtle ambient gradient orbs.
-- **Interactive Dual-Style Portrait Frame**: High-resolution studio portrait with an instant toggle between **Executive Formal (White Shirt)** and **Creative Casual (Brown Shirt)**.
-- **Interactive Live Code Showcase**: Embedded code explorer directly inspired by modern developer reels, featuring syntax highlighting, macOS window chrome, and snippets from Sujith's actual projects (`AdaptiveSignalEngine.py`, `TravelPlannerCoordinator.jsx`, `VehicleContourDetector.py`).
-- **Signature Feature — Live Traffic Signal Simulator**: An interactive frontend simulation implementing the adaptive signal timing algorithm developed for Smart India Hackathon 2024. Fully handles edge-cases including zero intersection load and highly skewed traffic corridors.
-- **Architectural Project Showcase**: Detailed breakdowns of **Tourist Guide / WanderAI** (MERN + 6 real-world APIs) and **Smart Traffic Optimization** (OpenCV MOG2 background subtractor + Flask).
-- **Fluid Natural Scrolling**: Native 120Hz/60Hz smooth, uninterrupted wheel and touch scrolling across desktop, tablet, and mobile devices.
-- **Accessibility & UX**: Focus-visible outlines, reduced-motion overrides (`@media (prefers-reduced-motion: reduce)`), semantic HTML, descriptive alt text, and keyboard navigation.
+* **Background / Canvas**: Deep Matte Cosmic Obsidian (`#08090C`, `#0C0E14`)
+* **Primary High-Voltage Accent**: **Electric Acid Volt (`#D4FF00`)**
+* **Secondary Ambient Accent**: **Laser Violet (`#A855F7`)**
+* **Supporting Accents**: High-Luminance White (`#FFFFFF`), Slate (`#94A3B8`), Ice Cyan (`#38BDF8`)
+* **Borders & Dividers**: Precision Hairline Graphite (`#1B202D`) with subtle volt hover halos
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: React 18 (Vite)
-- **Styling**: Tailwind CSS v4 + Custom Glass Tokens
-- **Icons**: Lucide React + Bespoke Brand SVG Components
-- **Animations**: Framer Motion
-- **Production Asset Pipeline**: Embedded high-res portraits, PDF resume, and clean component architecture.
+* **Core Framework**: React 18
+* **Build System**: Vite 8
+* **Styling**: Tailwind CSS v4 (`@tailwindcss/vite`)
+* **Animations**: Framer Motion
+* **Iconography**: Lucide React + Custom Sharp SVG Icons
+* **Typefaces**: Space Grotesk / Plus Jakarta Sans + Inter + JetBrains Mono
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Key Sections & Features
+
+1. **Kinetic Editorial Hero**:
+   * Uses Photo 2 (executive crisp white shirt) with interactive duotone toggle to view the creative casual portrait.
+   * Monospace live code console with tabs for **SIH '24 Proportional Signal Engine**, **MERN 6-API Coordinator**, and **OpenCV Vehicle Contour Detector**.
+   * Live availability beacon (`🟢 Available for Summer 2025/2026 Roles`).
+2. **Verified Metrics Strip**:
+   * `8.6 / 10 CGPA` (Top Academic Standing @ BVRIT)
+   * `LEVEL 2 QUALIFIER` (Smart India Hackathon 2024)
+   * `6 LIVE APIs` (WanderAI Multi-Service Engine)
+   * `AGENTFORCE` (Salesforce Certified Specialist #7198308)
+3. **Engineering Foundations (About)**:
+   * Structured Bento Grid detailing Full-Stack System Integrity, Real-World Computer Vision, and Disciplined API Architecture.
+4. **Featured Projects Showcase**:
+   * **WanderAI / Smart Tourist Guide & Budget Planner**: MERN stack orchestrating Amadeus, OpenWeather, Foursquare, Visual Crossing, Wikipedia, and Gemini AI.
+   * **Smart Traffic Signal Optimization using Computer Vision**: SIH 2024 Level 2 project with OpenCV MOG2 background subtractor and adaptive ratio allocation.
+   * **Urban Mobility Optimization Through Deep Learning**: AlexNet CNN traffic forecasting research.
+   * **MazeTilt VR Simulation**: Unity / C# spatial physics balance game.
+5. **Interactive Traffic Signal Simulator**:
+   * Signature sandbox running the real proportional allocation math from `vs/app.py`.
+   * Real-time sliders, presets for rush-hour flux, balanced lanes, zero traffic, and extreme skew.
+   * Live telemetry JSON schema preview.
+6. **Categorized Skill Matrix**:
+   * Languages, Frontend, Backend, Databases & Cloud, Machine Learning & Vision, Developer Tools.
+7. **Academic Timeline & Industry Certifications**:
+   * BVRIT, Narayana Junior College (98.0%), TS EAMCET Rank 13,182.
+   * Salesforce Agentforce, EF SET English C1 Advanced (67/100, Listening 71 C2), Reliance Foundation AI, Simplilearn GenAI Studio.
+8. **Contact & Footer**:
+   * One-click clipboard copy for email and phone, interactive message dispatch form, live Hyderabad IST clock.
+
+---
+
+## 💻 Local Development
 
 ```bash
-# 1. Navigate to the project directory
+# Navigate to the project directory
 cd "C:\Users\sujit\.gemini\antigravity\scratch\sujith-portfolio"
 
-# 2. Install dependencies (if setting up on a new machine)
+# Install dependencies (already installed)
 npm install
 
-# 3. Start local development server
+# Start development server
 npm run dev
-# The server will be accessible at: http://localhost:5173/
+# Running on http://localhost:5173/
 
-# 4. Create production build
+# Create optimized production build
 npm run build
-
-# 5. Preview the production build locally
-npm run preview
 ```
 
 ---
 
-## 🌐 Deploying to Vercel
+## 🌐 Deploy to Vercel
 
-### Option A: Via GitHub (Recommended)
-1. Push this repository to your GitHub account:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: portfolio implementation complete"
-   git branch -M main
-   git remote add origin https://github.com/sujithsinghh/portfolio.git
-   git push -u origin main
-   ```
-2. Log in to [Vercel](https://vercel.com/) and click **"Add New Project"**.
-3. Import your `portfolio` repository.
-4. Vercel automatically detects **Vite**:
-   - **Framework Preset**: `Vite`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-5. Click **Deploy**. Your portfolio will be live on a fast global edge network with automatic SSL.
-
-### Option B: Via Vercel CLI
 ```bash
 # Install Vercel CLI globally
 npm i -g vercel
 
-# Run deployment from the project directory
+# Deploy directly from terminal
 vercel
-
-# Deploy to production domain
-vercel --prod
 ```
-
----
-
-## 📋 Verified Dossier & Credentials
-
-- **Institution**: Padmasri Dr. B.V. Raju Institute of Technology (BVRIT), Medak, Telangana (2023–2027)
-- **Degree & Score**: B.Tech in Computer Science & Engineering (8.6 / 10 CGPA)
-- **Intermediate**: Narayana Junior College, Hyderabad (98.0%)
-- **Entrance Examination**: TS EAMCET 2023 Rank 13,182
-- **Hackathon**: Smart India Hackathon (SIH) 2024 Level 2 National Qualifier
-- **Certifications**:
-  - Salesforce Certified Agentforce Specialist (ID: `7198308`)
-  - EF SET English Certificate C1 Advanced (Score: 67/100, Listening: 71 C2)
-  - Reliance Foundation AI - DevOps Engineer Programmes
-  - Simplilearn Introduction to Generative AI Studio
+Or push this repository to GitHub and import it on [vercel.com](https://vercel.com).
