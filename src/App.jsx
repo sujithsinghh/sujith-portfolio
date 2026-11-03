@@ -12,38 +12,38 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-aurora-luxe bg-grid-aurora text-[#F8FAFC] selection:bg-[#6366F1]/40 selection:text-white relative">
-      {/* Floating Island Navigation Dock */}
+    <div className="min-h-screen bg-[#0C0E12] text-[#F3F4F6] selection:bg-[#F59E0B]/30 selection:text-white">
+      {/* Top Navigation */}
       <Navbar />
 
-      {/* Main Content Sections */}
-      <main className="relative z-10">
-        {/* Editorial Hero with Perfectly Aligned 3:4 Portrait & Workstation */}
+      {/* Main Content Container with Strict Alignment */}
+      <main className="max-w-6xl mx-auto px-6 sm:px-8 space-y-24 sm:space-y-32 pt-28 pb-24">
+        {/* Editorial Hero */}
         <Hero />
 
-        {/* Verified Stats Bento Strip */}
+        {/* Verified Track Record & Academic Metrics */}
         <MetricsStrip />
 
-        {/* Engineering Philosophy & Background */}
+        {/* Engineering Background & Philosophy */}
         <About />
 
-        {/* Signature Interactive Projects Studio */}
+        {/* Flagship & Specialized Project Case Studies */}
         <Projects />
 
-        {/* Real-Time Traffic Signal Command Console */}
+        {/* Interactive Traffic Signal Optimization Simulation */}
         <TrafficSimulator />
 
-        {/* Categorized Technical Skills Matrix */}
+        {/* Categorized Technical Skills */}
         <Skills />
 
-        {/* Education & Verified Industry Credentials */}
+        {/* Academic History & Verified Certifications */}
         <EducationAndCerts />
 
-        {/* Direct Contact & Collaboration Hub */}
+        {/* Direct Contact & Inquiry Form */}
         <Contact />
       </main>
 
-      {/* Modern Status Footer */}
+      {/* Site Footer */}
       <Footer />
     </div>
   );

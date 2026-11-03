@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Copy, Check, Send, Code2, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Copy, Check, Send, ExternalLink, MessageSquare } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
@@ -32,240 +32,226 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="flex flex-col space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A5B4FC] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#818CF8]/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#818CF8] animate-pulse"></span>
-            <span>Initiate Collaboration</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold font-display text-white tracking-tight">
-            Get in Touch & Work Together
-          </h2>
-          <p className="text-sm sm:text-base text-white/70 max-w-2xl">
-            Currently open for engineering internships, collaborative software development, and technical inquiries. Reach out directly.
-          </p>
+    <section id="contact" className="pt-8">
+      {/* Section Header */}
+      <div className="flex flex-col space-y-3 mb-10">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+          <span className="font-mono text-xs uppercase tracking-widest text-[#949EAE]">
+            Get In Touch
+          </span>
         </div>
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#F3F4F6]">
+          Contact & Collaboration
+        </h2>
+        <p className="text-[#949EAE] text-sm sm:text-base max-w-3xl leading-relaxed">
+          Currently open to software engineering internships, collaborative technical projects, and full-stack development inquiries.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        {/* Left Column: Direct Contact Info (5 Cols) */}
+        <div className="lg:col-span-5 space-y-4">
           
-          {/* Left Column: Direct Info Glass Cards (5 Cols) */}
-          <div className="lg:col-span-5 space-y-4">
-            
-            {/* Email Card */}
-            <div className="p-5 rounded-2xl glass-panel flex items-center justify-between border border-white/15">
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#818CF8]">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-white/50 uppercase block">
-                    Institutional Email
-                  </span>
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="text-xs sm:text-sm font-mono text-white hover:text-[#818CF8] transition-colors"
-                  >
-                    {personalInfo.email}
-                  </a>
-                </div>
-              </div>
-
-              <button
-                onClick={() => copyToClipboard(personalInfo.email, 'email')}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 text-white/70 hover:text-white transition-colors cursor-pointer"
-                title="Copy email to clipboard"
-              >
-                {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-              </button>
-            </div>
-
-            {/* Phone Card */}
-            <div className="p-5 rounded-2xl glass-panel flex items-center justify-between border border-white/15">
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#818CF8]">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-white/50 uppercase block">
-                    Direct Phone / WhatsApp
-                  </span>
-                  <a
-                    href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-                    className="text-xs sm:text-sm font-mono text-white hover:text-[#818CF8] transition-colors"
-                  >
-                    {personalInfo.phone}
-                  </a>
-                </div>
-              </div>
-
-              <button
-                onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 text-white/70 hover:text-white transition-colors cursor-pointer"
-                title="Copy phone to clipboard"
-              >
-                {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-              </button>
-            </div>
-
-            {/* Location Card */}
-            <div className="p-5 rounded-2xl glass-panel flex items-center gap-3 border border-white/15">
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-emerald-400">
-                <MapPin className="w-4 h-4" />
+          {/* Email Card */}
+          <div className="p-5 rounded-xl bg-[#13161F] border border-[#202534] flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-lg bg-[#0C0E12] border border-[#202534] text-[#F59E0B]">
+                <Mail className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-[10px] font-mono text-white/50 uppercase block">
-                  Location & Academic Base
+                <span className="text-[10px] font-mono text-[#949EAE] uppercase block">
+                  Institutional Email
                 </span>
-                <span className="text-xs sm:text-sm font-medium text-white">
-                  Hyderabad / Medak, Telangana, India
-                </span>
-              </div>
-            </div>
-
-            {/* Social Grid */}
-            <div className="pt-2">
-              <div className="text-[11px] font-mono text-white/50 uppercase tracking-wider mb-2.5">
-                Verified External Profiles:
-              </div>
-              <div className="grid grid-cols-2 gap-2.5">
                 <a
-                  href={personalInfo.socials.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl glass-dock hover:border-white/30 text-xs text-white transition-colors border border-white/10"
+                  href={`mailto:${personalInfo.email}`}
+                  className="text-xs sm:text-sm font-mono text-[#F3F4F6] hover:text-[#F59E0B] transition-colors"
                 >
-                  <span className="flex items-center gap-2">
-                    <GithubIcon className="w-4 h-4 text-white" />
-                    <span>GitHub</span>
-                  </span>
-                  <ExternalLink className="w-3 h-3 text-white/40" />
-                </a>
-
-                <a
-                  href={personalInfo.socials.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl glass-dock hover:border-white/30 text-xs text-white transition-colors border border-white/10"
-                >
-                  <span className="flex items-center gap-2">
-                    <LinkedinIcon className="w-4 h-4 text-[#38BDF8]" />
-                    <span>LinkedIn</span>
-                  </span>
-                  <ExternalLink className="w-3 h-3 text-white/40" />
-                </a>
-
-                <a
-                  href={personalInfo.socials.leetcode}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl glass-dock hover:border-white/30 text-xs text-white transition-colors border border-white/10"
-                >
-                  <span className="flex items-center gap-2">
-                    <Code2 className="w-4 h-4 text-[#FFA116]" />
-                    <span>LeetCode</span>
-                  </span>
-                  <ExternalLink className="w-3 h-3 text-white/40" />
-                </a>
-
-                <a
-                  href={personalInfo.socials.smartinterviews}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-xl glass-dock hover:border-white/30 text-xs text-white transition-colors border border-white/10"
-                >
-                  <span className="flex items-center gap-2">
-                    <span className="font-mono text-xs text-[#C084FC] font-bold">SI</span>
-                    <span>SmartInterviews</span>
-                  </span>
-                  <ExternalLink className="w-3 h-3 text-white/40" />
+                  {personalInfo.email}
                 </a>
               </div>
             </div>
 
+            <button
+              onClick={() => copyToClipboard(personalInfo.email, 'email')}
+              className="p-2 rounded-lg bg-[#0C0E12] border border-[#202534] hover:border-[#384055] text-[#949EAE] hover:text-white transition-colors cursor-pointer"
+              title="Copy email"
+            >
+              {copiedEmail ? <Check className="w-4 h-4 text-[#10B981]" /> : <Copy className="w-4 h-4" />}
+            </button>
           </div>
 
-          {/* Right Column: Direct Inquiry Message Form (7 Cols) */}
-          <div className="lg:col-span-7">
-            <div className="p-7 sm:p-8 rounded-3xl glass-panel border border-white/15 shadow-2xl">
-              <h3 className="text-lg font-bold font-display text-white mb-2">
-                Send a Direct Message
-              </h3>
-              <p className="text-xs text-white/60 mb-6">
-                Fill out the form below to dispatch an inquiry directly to Matta Sujith Singh.
-              </p>
+          {/* Phone Card */}
+          <div className="p-5 rounded-xl bg-[#13161F] border border-[#202534] flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-lg bg-[#0C0E12] border border-[#202534] text-[#F59E0B]">
+                <Phone className="w-4 h-4" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono text-[#949EAE] uppercase block">
+                  Direct Phone / WhatsApp
+                </span>
+                <a
+                  href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
+                  className="text-xs sm:text-sm font-mono text-[#F3F4F6] hover:text-[#F59E0B] transition-colors"
+                >
+                  {personalInfo.phone}
+                </a>
+              </div>
+            </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-white/70">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      placeholder="e.g. Satya Nadella"
-                      className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#818CF8] focus:ring-1 focus:ring-[#818CF8] text-xs text-white outline-none transition-colors"
-                    />
-                  </div>
+            <button
+              onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
+              className="p-2 rounded-lg bg-[#0C0E12] border border-[#202534] hover:border-[#384055] text-[#949EAE] hover:text-white transition-colors cursor-pointer"
+              title="Copy phone"
+            >
+              {copiedPhone ? <Check className="w-4 h-4 text-[#10B981]" /> : <Copy className="w-4 h-4" />}
+            </button>
+          </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-white/70">
-                      Your Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      placeholder="you@company.com"
-                      className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#818CF8] focus:ring-1 focus:ring-[#818CF8] text-xs text-white outline-none transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-white/70">
-                    Message / Project Inquiry
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    placeholder="Describe your role, collaboration project, or technical question..."
-                    className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#818CF8] focus:ring-1 focus:ring-[#818CF8] text-xs text-white outline-none transition-colors resize-none"
-                  />
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
-                  <span className="text-[11px] font-mono text-white/50">
-                    Dispatches directly to: <code className="text-[#818CF8]">{personalInfo.email}</code>
-                  </span>
-
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-2 text-xs font-bold btn-aurora-primary px-6 py-2.5 rounded-xl cursor-pointer"
-                  >
-                    <span>Send Message</span>
-                    <Send className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-
-                {submitted && (
-                  <div className="mt-3 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs font-mono text-emerald-400 flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-400" />
-                    <span>Opening your email client with prefilled message. Thank you!</span>
-                  </div>
-                )}
-              </form>
+          {/* Location Card */}
+          <div className="p-5 rounded-xl bg-[#13161F] border border-[#202534] flex items-center gap-3">
+            <div className="p-2.5 rounded-lg bg-[#0C0E12] border border-[#202534] text-[#10B981]">
+              <MapPin className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-[10px] font-mono text-[#949EAE] uppercase block">
+                Academic Base & Location
+              </span>
+              <span className="text-xs sm:text-sm font-medium text-[#F3F4F6]">
+                Hyderabad / Medak, Telangana, India
+              </span>
             </div>
           </div>
 
+          {/* Verified External Profiles */}
+          <div className="pt-2">
+            <span className="text-xs font-mono text-[#949EAE] uppercase tracking-wider block mb-3">
+              Verified Profiles:
+            </span>
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href={personalInfo.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 rounded-lg bg-[#13161F] border border-[#202534] hover:border-[#384055] text-xs text-[#F3F4F6] transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <GithubIcon className="w-4 h-4 text-[#949EAE]" />
+                  <span>GitHub</span>
+                </span>
+                <ExternalLink className="w-3 h-3 text-[#949EAE]" />
+              </a>
+
+              <a
+                href={personalInfo.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 rounded-lg bg-[#13161F] border border-[#202534] hover:border-[#384055] text-xs text-[#F3F4F6] transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <LinkedinIcon className="w-4 h-4 text-[#949EAE]" />
+                  <span>LinkedIn</span>
+                </span>
+                <ExternalLink className="w-3 h-3 text-[#949EAE]" />
+              </a>
+
+              <a
+                href={personalInfo.socials.leetcode}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 rounded-lg bg-[#13161F] border border-[#202534] hover:border-[#384055] text-xs text-[#F3F4F6] transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="font-mono font-bold text-[#F59E0B]">LC</span>
+                  <span>LeetCode</span>
+                </span>
+                <ExternalLink className="w-3 h-3 text-[#949EAE]" />
+              </a>
+
+              <a
+                href={personalInfo.socials.smartinterviews}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 rounded-lg bg-[#13161F] border border-[#202534] hover:border-[#384055] text-xs text-[#F3F4F6] transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="font-mono font-bold text-[#10B981]">SI</span>
+                  <span>SmartInterviews</span>
+                </span>
+                <ExternalLink className="w-3 h-3 text-[#949EAE]" />
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Right Column: Direct Message Form (7 Cols) */}
+        <div className="lg:col-span-7 bg-[#13161F] border border-[#202534] rounded-xl p-6 sm:p-7 space-y-5">
+          <div className="flex items-center justify-between pb-3 border-b border-[#202534]">
+            <div className="flex items-center gap-2 text-sm font-semibold text-[#F3F4F6]">
+              <MessageSquare className="w-4 h-4 text-[#F59E0B]" />
+              <span>Send Direct Inquiry</span>
+            </div>
+            <span className="text-[11px] font-mono text-[#949EAE]">
+              Opens default email client
+            </span>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-mono text-[#949EAE] block">
+                  Your Full Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Jane Doe"
+                  value={formState.name}
+                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#0C0E12] border border-[#202534] text-xs text-[#F3F4F6] placeholder-[#949EAE]/40 focus:outline-none focus:border-[#F59E0B] transition-colors"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-mono text-[#949EAE] block">
+                  Your Email Address
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="e.g. jane@company.com"
+                  value={formState.email}
+                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#0C0E12] border border-[#202534] text-xs text-[#F3F4F6] placeholder-[#949EAE]/40 focus:outline-none focus:border-[#F59E0B] transition-colors"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-mono text-[#949EAE] block">
+                Project Scope or Message
+              </label>
+              <textarea
+                required
+                rows={5}
+                placeholder="Briefly describe your internship role, project scope, or technical question..."
+                value={formState.message}
+                onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                className="w-full px-3.5 py-2.5 rounded-lg bg-[#0C0E12] border border-[#202534] text-xs text-[#F3F4F6] placeholder-[#949EAE]/40 focus:outline-none focus:border-[#F59E0B] transition-colors resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full btn-primary !py-2.5 flex items-center justify-center gap-2 text-xs font-semibold"
+            >
+              <Send className="w-3.5 h-3.5" />
+              <span>{submitted ? 'Opening Email Client...' : 'Dispatch Inquiry'}</span>
+            </button>
+          </form>
         </div>
 
       </div>

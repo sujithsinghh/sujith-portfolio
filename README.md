@@ -1,78 +1,92 @@
-# Matta Sujith Singh — Creative Engineering Portfolio
+# Matta Sujith Singh — Software Developer Portfolio
 
-A modern, high-voltage developer portfolio designed for **Matta Sujith Singh** (B.Tech Computer Science & Engineering @ BVRIT, 8.6 CGPA, Class of 2027).
+A bespoke, production-grade developer portfolio for **Matta Sujith Singh** (B.Tech Computer Science & Engineering @ BVRIT, 8.6 CGPA, Class of 2027, SIH 2024 Level 2 Qualifier).
 
-Built with the **"Electric Acid Volt & Deep Obsidian"** creative engineering theme, featuring real-world project deep-dives, verified credentials, and an interactive **Live Traffic Signal Optimization Simulator**.
-
----
-
-## ⚡ Visual Theme & Color Chemistry
-
-* **Background / Canvas**: Deep Matte Cosmic Obsidian (`#08090C`, `#0C0E14`)
-* **Primary High-Voltage Accent**: **Electric Acid Volt (`#D4FF00`)**
-* **Secondary Ambient Accent**: **Laser Violet (`#A855F7`)**
-* **Supporting Accents**: High-Luminance White (`#FFFFFF`), Slate (`#94A3B8`), Ice Cyan (`#38BDF8`)
-* **Borders & Dividers**: Precision Hairline Graphite (`#1B202D`) with subtle volt hover halos
+Designed around an original **Architectural Matte Graphite & Warm Ochre** visual language—prioritizing content hierarchy, editorial typography, natural portrait proportions, silky-smooth document scrolling, and verified engineering case studies over derivative template trends.
 
 ---
 
-## 🛠️ Tech Stack
+## 🎨 Visual System & Design Architecture
 
-* **Core Framework**: React 18
-* **Build System**: Vite 8
+* **Canvas / Foundation**: Matte Deep Obsidian (`#0C0E12`)
+* **Component Surface**: Structural Graphite (`#13161F`)
+* **Hairline Borders**: Architectural Slate (`#202534`), hover `#384055`
+* **Primary Accent**: Warm Industrial Ochre / Amber (`#F59E0B`)
+* **Telemetry & Signal Accent**: Emerald Green (`#10B981`)
+* **Typography Scale**: High-luminance white (`#F3F4F6`, `#FFFFFF`) for headlines; muted slate (`#949EAE`) for editorial copy; JetBrains Mono for metrics and schemas.
+* **Layout Grid**: Strict 12-column grid bound to `max-w-6xl` with consistent vertical flow (`space-y-24 sm:space-y-32`).
+
+---
+
+## 🛠️ Technology Stack
+
+* **UI Framework**: React 18
+* **Build Tool**: Vite 8 (`@vitejs/plugin-react`)
 * **Styling**: Tailwind CSS v4 (`@tailwindcss/vite`)
-* **Animations**: Framer Motion
-* **Iconography**: Lucide React + Custom Sharp SVG Icons
-* **Typefaces**: Space Grotesk / Plus Jakarta Sans + Inter + JetBrains Mono
+* **Transitions**: Snappy Framer Motion springs and CSS transitions
+* **Icons**: Lucide React + custom SVGs
+* **Fonts**: Plus Jakarta Sans, Inter, JetBrains Mono
 
 ---
 
-## 🚀 Key Sections & Features
+## 📂 Key Sections & Implementations
 
-1. **Kinetic Editorial Hero**:
-   * Uses Photo 2 (executive crisp white shirt) with interactive duotone toggle to view the creative casual portrait.
-   * Monospace live code console with tabs for **SIH '24 Proportional Signal Engine**, **MERN 6-API Coordinator**, and **OpenCV Vehicle Contour Detector**.
-   * Live availability beacon (`🟢 Available for Summer 2025/2026 Roles`).
-2. **Verified Metrics Strip**:
-   * `8.6 / 10 CGPA` (Top Academic Standing @ BVRIT)
-   * `LEVEL 2 QUALIFIER` (Smart India Hackathon 2024)
-   * `6 LIVE APIs` (WanderAI Multi-Service Engine)
-   * `AGENTFORCE` (Salesforce Certified Specialist #7198308)
-3. **Engineering Foundations (About)**:
-   * Structured Bento Grid detailing Full-Stack System Integrity, Real-World Computer Vision, and Disciplined API Architecture.
-4. **Featured Projects Showcase**:
-   * **WanderAI / Smart Tourist Guide & Budget Planner**: MERN stack orchestrating Amadeus, OpenWeather, Foursquare, Visual Crossing, Wikipedia, and Gemini AI.
-   * **Smart Traffic Signal Optimization using Computer Vision**: SIH 2024 Level 2 project with OpenCV MOG2 background subtractor and adaptive ratio allocation.
-   * **Urban Mobility Optimization Through Deep Learning**: AlexNet CNN traffic forecasting research.
-   * **MazeTilt VR Simulation**: Unity / C# spatial physics balance game.
-5. **Interactive Traffic Signal Simulator**:
-   * Signature sandbox running the real proportional allocation math from `vs/app.py`.
-   * Real-time sliders, presets for rush-hour flux, balanced lanes, zero traffic, and extreme skew.
-   * Live telemetry JSON schema preview.
-6. **Categorized Skill Matrix**:
-   * Languages, Frontend, Backend, Databases & Cloud, Machine Learning & Vision, Developer Tools.
-7. **Academic Timeline & Industry Certifications**:
-   * BVRIT, Narayana Junior College (98.0%), TS EAMCET Rank 13,182.
-   * Salesforce Agentforce, EF SET English C1 Advanced (67/100, Listening 71 C2), Reliance Foundation AI, Simplilearn GenAI Studio.
+1. **Editorial Hero & Portrait Showcase**:
+   - Concise, authentic identity as a Computer Science undergraduate at BVRIT.
+   - Natural 3:4 aspect ratio portrait (`sujith_avatar.jpg`) with zero face-cropping and zero dark overlays.
+   - Includes interactive **[Formal / Casual]** photo switcher allowing recruiters to view the crisp formal white shirt portrait (default) or the relaxed brown casual portrait (`sujith_avatar_casual.jpg`).
+   - Quick action triggers: Direct PDF resume download, projects jump anchor, verified GitHub, LinkedIn, LeetCode links.
+
+2. **Verified Academic & Hackathon Metrics**:
+   - **8.6 / 10 CGPA** (B.Tech CSE @ BVRIT Autonomous)
+   - **SIH Level 2** (Smart India Hackathon 2024 National Qualifier)
+   - **6 Live APIs** (Orchestrated in WanderAI)
+   - **Agentforce Specialist** (Salesforce Certified #7198308)
+
+3. **Engineering Foundations (Profile)**:
+   - Detailed academic narrative (98.0% Intermediate, TS EAMCET Rank 13,182).
+   - 3 Architectural pillars: Full-Stack System Architecture, Real-Time Computer Vision, Disciplined API Orchestration.
+
+4. **Featured Engineering Projects & Case Studies**:
+   - **WanderAI / Smart Tourist Guide & Budget Planner**: Multi-service MERN application orchestrating Amadeus, OpenWeather, Foursquare, Visual Crossing, Wikipedia, and Gemini AI with schema normalization and JWT security.
+   - **Smart Traffic Signal Optimization using Computer Vision**: SIH 2024 Level 2 project with OpenCV MOG2 background subtractors and proportional density allocation.
+   - **Urban Mobility Optimization Through Deep Learning**: AlexNet CNN research on traffic flow constraints.
+   - **MazeTilt VR Simulation**: Unity / C# spatial physics balance simulation.
+   - Deep-dive specs modal with keyboard Escape support and scroll restoration.
+
+5. **Live Traffic Signal Optimization Simulator**:
+   - Interactive client-side implementation of Sujith's proportional allocation formula.
+   - 4-lane sliders, active green duration in seconds, rush surge / balanced / bottleneck / zero traffic presets.
+   - Real-time Flask API payload schema preview.
+
+6. **Verified Competencies (Skills)**:
+   - Categorized 6-card matrix: Languages, Frontend, Backend, Databases & Cloud, Computer Vision & AI, Tools & Practices.
+   - Hover tooltips detailing practical implementation context.
+
+7. **Education & Industry Credentials**:
+   - BVRIT, Narayana Junior College, TS EAMCET 2023.
+   - Salesforce Agentforce (#7198308), EF SET English C1 Advanced (67/100, Listening 71 C2), Reliance Foundation AI-DevOps (#RFSA000629837), Simplilearn GenAI (#9075690).
+
 8. **Contact & Footer**:
-   * One-click clipboard copy for email and phone, interactive message dispatch form, live Hyderabad IST clock.
+   - One-click copy for institutional email (`23211a05j3@bvrit.ac.in`) and phone (`+91 7032678348`).
+   - Functional direct inquiry form and live Hyderabad IST clock.
 
 ---
 
-## 💻 Local Development
+## 💻 Local Running & Development
 
 ```bash
-# Navigate to the project directory
+# 1. Navigate to the project directory
 cd "C:\Users\sujit\.gemini\antigravity\scratch\sujith-portfolio"
 
-# Install dependencies (already installed)
+# 2. Install dependencies (if not already installed)
 npm install
 
-# Start development server
+# 3. Start the Vite development server
 npm run dev
-# Running on http://localhost:5173/
+# Server runs at: http://localhost:5173/
 
-# Create optimized production build
+# 4. Create an optimized production build
 npm run build
 ```
 
@@ -80,11 +94,27 @@ npm run build
 
 ## 🌐 Deploy to Vercel
 
+### Option 1: Via Vercel CLI (Recommended)
 ```bash
-# Install Vercel CLI globally
+# In the project directory:
 npm i -g vercel
-
-# Deploy directly from terminal
 vercel
 ```
-Or push this repository to GitHub and import it on [vercel.com](https://vercel.com).
+Follow the interactive prompts:
+* Link to existing project? **No**
+* What's your project's name? **sujith-portfolio**
+* In which directory is your code located? **./**
+* Want to modify these settings? **No** (Vercel automatically detects Vite).
+
+### Option 2: Via GitHub + Vercel Dashboard
+1. Push this local directory to your GitHub account:
+   ```bash
+   git init
+   git add .
+   git commit -m "feat: complete original architectural developer portfolio"
+   git remote add origin https://github.com/sujithsinghh/portfolio.git
+   git push -u origin master
+   ```
+2. Log in to [vercel.com](https://vercel.com).
+3. Click **Add New** → **Project** → select your `portfolio` repository.
+4. Framework Preset will auto-detect as **Vite**. Click **Deploy**.
