@@ -36,8 +36,8 @@ export default function Projects() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#FFA800] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#FFA800]/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFA800] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A5B4FC] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#818CF8]/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#818CF8] animate-pulse"></span>
             <span>Signature Engineering Work</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-display text-white tracking-tight">
@@ -58,12 +58,12 @@ export default function Projects() {
                 key={project.id}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-3xl glass-card p-6 sm:p-9 border border-white/15 shadow-2xl relative overflow-hidden"
+                className="rounded-3xl glass-panel p-6 sm:p-9 border border-white/15 shadow-2xl relative overflow-hidden"
               >
                 {/* Top Studio Bar */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10 mb-8">
                   <div className="flex items-center gap-3">
-                    <span className="px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-mono text-[#FFA800] font-semibold">
+                    <span className="px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-mono text-[#A5B4FC] font-semibold">
                       {project.category}
                     </span>
                     {project.achievements && (
@@ -80,7 +80,7 @@ export default function Projects() {
                       onClick={() => setTabForProject(project.id, 'interactive')}
                       className={`px-3 py-1 text-xs font-mono rounded-lg transition-all cursor-pointer ${
                         currentTab === 'interactive'
-                          ? 'bg-[#FF6B35] text-white font-bold shadow-md'
+                          ? 'bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-bold shadow-md'
                           : 'text-white/60 hover:text-white'
                       }`}
                     >
@@ -90,7 +90,7 @@ export default function Projects() {
                       onClick={() => setTabForProject(project.id, 'arch')}
                       className={`px-3 py-1 text-xs font-mono rounded-lg transition-all cursor-pointer ${
                         currentTab === 'arch'
-                          ? 'bg-[#FF6B35] text-white font-bold shadow-md'
+                          ? 'bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-bold shadow-md'
                           : 'text-white/60 hover:text-white'
                       }`}
                     >
@@ -100,7 +100,7 @@ export default function Projects() {
                       onClick={() => setTabForProject(project.id, 'specs')}
                       className={`px-3 py-1 text-xs font-mono rounded-lg transition-all cursor-pointer ${
                         currentTab === 'specs'
-                          ? 'bg-[#FF6B35] text-white font-bold shadow-md'
+                          ? 'bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white font-bold shadow-md'
                           : 'text-white/60 hover:text-white'
                       }`}
                     >
@@ -130,7 +130,7 @@ export default function Projects() {
                       <ul className="space-y-2">
                         {project.keyFeatures?.slice(0, 3).map((feat, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/80">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#FFA800] mt-2 shrink-0"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#818CF8] mt-2 shrink-0"></span>
                             <span>{feat}</span>
                           </li>
                         ))}
@@ -158,7 +158,7 @@ export default function Projects() {
                     <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
                       <button
                         onClick={() => setActiveModalProject(project)}
-                        className="inline-flex items-center gap-2 text-xs font-bold btn-glass-primary px-4 py-2.5 rounded-xl cursor-pointer"
+                        className="inline-flex items-center gap-2 text-xs font-bold btn-aurora-primary px-4 py-2.5 rounded-xl cursor-pointer"
                       >
                         <span>Deep-Dive Case Study</span>
                         <ChevronRight className="w-4 h-4" />
@@ -169,7 +169,7 @@ export default function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-xs font-mono btn-glass-secondary px-4 py-2.5 rounded-xl cursor-pointer"
+                          className="inline-flex items-center gap-2 text-xs font-mono btn-aurora-secondary px-4 py-2.5 rounded-xl cursor-pointer"
                         >
                           <GithubIcon className="w-3.5 h-3.5" />
                           <span>View Source</span>
@@ -179,7 +179,7 @@ export default function Projects() {
                       {project.id === 'traffic-optimization' && (
                         <a
                           href="#traffic-sim"
-                          className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FFA800] hover:underline px-2 py-2"
+                          className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A5B4FC] hover:underline px-2 py-2"
                         >
                           <Terminal className="w-3.5 h-3.5" />
                           <span>Try Live Simulator ↓</span>
@@ -190,7 +190,7 @@ export default function Projects() {
 
                   {/* Right Column: Dynamic Interactive Surface (6 Cols) */}
                   <div className="lg:col-span-6">
-                    <div className="rounded-2xl glass-code-window p-5 border border-white/15 min-h-[320px] flex flex-col justify-between">
+                    <div className="rounded-2xl glass-panel p-5 border border-white/15 min-h-[320px] flex flex-col justify-between">
                       
                       {/* View 1: Live Interactive Feature Simulation */}
                       {currentTab === 'interactive' && (
@@ -198,8 +198,8 @@ export default function Projects() {
                           {project.id === 'tourist-guide' ? (
                             <div className="space-y-4">
                               <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                                <span className="text-xs font-mono text-[#FFA800] flex items-center gap-1.5">
-                                  <Sparkles className="w-3.5 h-3.5 text-[#FFA800]" />
+                                <span className="text-xs font-mono text-[#A5B4FC] flex items-center gap-1.5">
+                                  <Sparkles className="w-3.5 h-3.5 text-[#818CF8]" />
                                   <span>Live Multi-API Itinerary Engine</span>
                                 </span>
                                 <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
@@ -251,7 +251,7 @@ export default function Projects() {
                               <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs">
                                 <div className="flex items-center justify-between">
                                   <span className="text-white/60">Estimated Cost ({wanderDays} Days):</span>
-                                  <span className="font-mono text-[#FFA800] font-bold text-sm">${getEstimatedCost()} USD</span>
+                                  <span className="font-mono text-[#818CF8] font-bold text-sm">${getEstimatedCost()} USD</span>
                                 </div>
                                 <div className="flex items-center justify-between text-[11px] text-white/70">
                                   <span>Weather Prediction:</span>
@@ -277,14 +277,14 @@ export default function Projects() {
                                   <Terminal className="w-3.5 h-3.5 text-emerald-400" />
                                   <span>OpenCV Video Analytics Stream</span>
                                 </span>
-                                <span className="text-[10px] font-mono text-[#FFA800] bg-[#FFA800]/10 px-2 py-0.5 rounded border border-[#FFA800]/20">
+                                <span className="text-[10px] font-mono text-[#818CF8] bg-[#6366F1]/10 px-2 py-0.5 rounded border border-[#6366F1]/20">
                                   MOG2 Active
                                 </span>
                               </div>
 
                               {/* Simulated OpenCV Video feed visual */}
                               <div className="aspect-[16/9] w-full rounded-xl bg-[#070912] border border-white/10 relative overflow-hidden flex flex-col items-center justify-center p-4">
-                                <div className="absolute inset-0 bg-grid-architectural opacity-30" />
+                                <div className="absolute inset-0 bg-grid-aurora opacity-30" />
                                 
                                 {/* Simulated bounding boxes */}
                                 <div className="border border-emerald-400/80 bg-emerald-400/10 px-3 py-1 rounded text-[10px] font-mono text-emerald-300 absolute top-4 left-6">
@@ -321,7 +321,7 @@ export default function Projects() {
                           <div className="space-y-2">
                             {project.architectureHighlights?.map((step, idx) => (
                               <div key={idx} className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
-                                <span className="w-5 h-5 rounded-md bg-[#FF6B35]/20 border border-[#FF6B35]/40 text-[#FFA800] text-[10px] font-mono font-bold flex items-center justify-center shrink-0">
+                                <span className="w-5 h-5 rounded-md bg-[#6366F1]/20 border border-[#6366F1]/40 text-[#A5B4FC] text-[10px] font-mono font-bold flex items-center justify-center shrink-0">
                                   0{idx + 1}
                                 </span>
                                 <div>
@@ -344,7 +344,7 @@ export default function Projects() {
                             {project.specsList?.map((spec, idx) => (
                               <div key={idx} className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/10">
                                 <span className="text-white/60">{spec.label}</span>
-                                <span className="text-[#FFA800] font-semibold">{spec.value}</span>
+                                <span className="text-[#818CF8] font-semibold">{spec.value}</span>
                               </div>
                             ))}
                           </div>
@@ -372,11 +372,11 @@ export default function Projects() {
               <motion.div
                 key={project.id}
                 whileHover={{ y: -4 }}
-                className="p-6 rounded-3xl glass-card flex flex-col justify-between border border-white/15 group"
+                className="p-6 rounded-3xl glass-panel flex flex-col justify-between border border-white/15 group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono text-[#FFA800] px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                    <span className="text-xs font-mono text-[#A5B4FC] px-3 py-1 rounded-full bg-white/5 border border-white/10">
                       {project.category}
                     </span>
                     <span className="text-xs font-mono text-white/50">
@@ -384,7 +384,7 @@ export default function Projects() {
                     </span>
                   </div>
 
-                  <h4 className="text-xl font-bold font-display text-white group-hover:text-[#FFA800] transition-colors">
+                  <h4 className="text-xl font-bold font-display text-white group-hover:text-[#818CF8] transition-colors">
                     {project.title}
                   </h4>
 
@@ -407,7 +407,7 @@ export default function Projects() {
                 <div className="pt-4 mt-5 border-t border-white/10 flex items-center justify-between">
                   <button
                     onClick={() => setActiveModalProject(project)}
-                    className="text-xs font-mono text-[#FFA800] hover:underline flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-mono text-[#818CF8] hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     <span>Read Details</span>
                     <ChevronRight className="w-3.5 h-3.5" />

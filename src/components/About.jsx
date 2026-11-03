@@ -9,7 +9,7 @@ export default function About() {
       description: "From client state in React 18 down to Express middleware and MongoDB schemas, I design systems with clear separation of concerns, structured validation, and predictable error handling.",
       icon: Database,
       tag: "MERN Stack",
-      accent: "text-[#FFA800]"
+      accent: "text-[#818CF8]"
     },
     {
       title: "Real-World Computer Vision",
@@ -33,8 +33,8 @@ export default function About() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-10">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#FFA800] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#FFA800]/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFA800] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A5B4FC] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#818CF8]/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#818CF8] animate-pulse"></span>
             <span>Profile & Engineering Mindset</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-display text-white tracking-tight">
@@ -49,16 +49,16 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           
           {/* Left Narrative Glass Panel (7 Cols) */}
-          <div className="lg:col-span-7 glass-card rounded-3xl p-7 sm:p-8 space-y-5 border border-white/15">
+          <div className="lg:col-span-7 glass-panel rounded-3xl p-7 sm:p-8 space-y-5 border border-white/15">
             <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <Terminal className="w-4 h-4 text-[#FFA800]" />
+              <Terminal className="w-4 h-4 text-[#818CF8]" />
               <span>Undergraduate Journey & Core Focus</span>
             </h3>
             
             <p className="text-sm sm:text-base text-white/80 leading-relaxed">
               I am currently in my 3rd year pursuing a Bachelor of Technology in Computer Science and Engineering at{' '}
               <strong className="text-white font-semibold">B. V. Raju Institute of Technology (BVRIT)</strong>, maintaining an{' '}
-              <span className="text-[#FFA800] font-mono font-bold">8.6/10 CGPA</span>. My engineering path is rooted in disciplined problem solving, mathematics, and building complete, end-to-end digital software.
+              <span className="text-amber-400 font-mono font-bold">8.6/10 CGPA</span>. My engineering path is rooted in disciplined problem solving, mathematics, and building complete, end-to-end digital software.
             </p>
 
             <p className="text-sm text-white/70 leading-relaxed">
@@ -73,7 +73,7 @@ export default function About() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#FFA800] mt-1 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#818CF8] mt-1 shrink-0" />
                 <span>
                   <strong className="text-white">Applied AI & Computer Vision:</strong> Translating algorithmic logic and computer vision models (OpenCV, AlexNet) into functional real-time tools for traffic management and urban efficiency.
                 </span>
@@ -82,7 +82,7 @@ export default function About() {
 
             <div className="pt-4 text-xs text-white/60 font-mono border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
               <span className="flex items-center gap-1.5 text-white">
-                <Award className="w-4 h-4 text-[#FFA800]" />
+                <Award className="w-4 h-4 text-[#F472B6]" />
                 <span>Smart India Hackathon 2024 National Qualifier</span>
               </span>
               <span className="text-emerald-400">Active Solver on LeetCode</span>
@@ -97,18 +97,18 @@ export default function About() {
                 <motion.div
                   key={item.title}
                   whileHover={{ y: -4 }}
-                  className="p-5 rounded-2xl glass-card group border border-white/15"
+                  className="p-5 rounded-2xl glass-panel group border border-white/15"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2.5">
                       <div className={`p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/30 ${item.accent} transition-colors`}>
                         <Icon className="w-4 h-4" />
                       </div>
-                      <h4 className="font-bold text-white text-sm group-hover:text-[#FFA800] transition-colors">
+                      <h4 className="font-bold text-white text-sm group-hover:text-[#818CF8] transition-colors">
                         {item.title}
                       </h4>
                     </div>
-                    <span className="text-[10px] font-mono text-white/60 bg-white/5 px-2 py-0.5 rounded border border-white/5">
+                    <span className="text-[10px] font-mono text-white/60 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10">
                       {item.tag}
                     </span>
                   </div>

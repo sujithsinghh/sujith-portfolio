@@ -93,23 +93,23 @@ export default function TrafficSimulator() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-10">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#FFA800] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#FFA800]/30">
-            <Cpu className="w-3.5 h-3.5 text-[#FFA800]" />
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A5B4FC] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#818CF8]/30">
+            <Cpu className="w-3.5 h-3.5 text-[#818CF8]" />
             <span>Interactive Engineering Sandbox</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-display text-white tracking-tight">
-            Live Traffic Signal Timing Operations Console
+            Live Traffic Signal Operations Console
           </h2>
           <p className="text-sm sm:text-base text-white/70 max-w-2xl">
-            A real-time glass simulation running the adaptive signal allocation algorithm developed for our Smart India Hackathon '24 project.
+            A real-time telemetry console running the adaptive signal allocation algorithm developed for our Smart India Hackathon '24 project.
           </p>
         </div>
 
         {/* Technical Architecture Disclaimer */}
-        <div className="mb-8 p-4 rounded-2xl glass-card border border-white/15 flex items-start gap-3 text-xs text-white/70 leading-relaxed">
-          <Info className="w-4 h-4 text-[#FFA800] shrink-0 mt-0.5" />
+        <div className="mb-8 p-4 rounded-2xl glass-panel border border-white/15 flex items-start gap-3 text-xs text-white/70 leading-relaxed">
+          <Info className="w-4 h-4 text-[#818CF8] shrink-0 mt-0.5" />
           <div>
-            <strong className="text-white font-medium">Architecture Note:</strong> In the deployed system, vehicle counts are extracted from live intersection camera feeds using OpenCV MOG2 background subtractors and dispatched through a Python Flask API (<code className="text-[#FFA800]">/get-traffic-data</code>).
+            <strong className="text-white font-medium">Architecture Note:</strong> In the deployed system, vehicle counts are extracted from live intersection camera feeds using OpenCV MOG2 background subtractors and dispatched through a Python Flask API (<code className="text-[#A5B4FC]">/get-traffic-data</code>).
           </div>
         </div>
 
@@ -122,7 +122,7 @@ export default function TrafficSimulator() {
             {/* Action Bar */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl glass-dock border border-white/15">
               <div className="flex items-center gap-2 text-xs font-mono text-white">
-                <Sliders className="w-4 h-4 text-[#FFA800]" />
+                <Sliders className="w-4 h-4 text-[#818CF8]" />
                 <span>Adjust Lane Densities:</span>
               </div>
 
@@ -131,7 +131,7 @@ export default function TrafficSimulator() {
                 <button
                   onClick={simulateTrafficFlux}
                   disabled={isSimulating}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl btn-glass-primary text-[11px] font-bold cursor-pointer"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl btn-aurora-primary text-[11px] font-bold cursor-pointer"
                   title="Randomize realistic rush hour traffic load"
                 >
                   <Play className={`w-3 h-3 ${isSimulating ? 'animate-spin' : ''}`} />
@@ -140,25 +140,25 @@ export default function TrafficSimulator() {
 
                 <button
                   onClick={resetToBalanced}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl btn-glass-secondary text-[11px] font-mono transition-colors cursor-pointer"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl btn-aurora-secondary text-[11px] font-mono transition-colors cursor-pointer"
                   title="Equalize all 4 lanes to 40"
                 >
-                  <RefreshCw className="w-3 h-3 text-[#FFA800]" />
+                  <RefreshCw className="w-3 h-3 text-[#A5B4FC]" />
                   <span>Equal (40)</span>
                 </button>
 
                 <button
                   onClick={setExtremeSkew}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl btn-glass-secondary text-[11px] font-mono transition-colors cursor-pointer"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl btn-aurora-secondary text-[11px] font-mono transition-colors cursor-pointer"
                   title="Test extreme bottleneck on South Corridor"
                 >
-                  <Zap className="w-3 h-3 text-[#FFA800]" />
+                  <Zap className="w-3 h-3 text-[#F472B6]" />
                   <span>Skew</span>
                 </button>
 
                 <button
                   onClick={setZeroTraffic}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl btn-glass-secondary text-[11px] font-mono transition-colors cursor-pointer"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl btn-aurora-secondary text-[11px] font-mono transition-colors cursor-pointer"
                   title="Test zero traffic edge-case"
                 >
                   <Ban className="w-3 h-3 text-red-400" />
@@ -179,7 +179,7 @@ export default function TrafficSimulator() {
                   <motion.div
                     key={dir.key}
                     whileHover={{ y: -3 }}
-                    className={`p-4 rounded-2xl glass-card border transition-all duration-300 relative ${
+                    className={`p-4 rounded-2xl glass-panel border transition-all duration-300 relative ${
                       isActive
                         ? 'border-emerald-400/60 shadow-lg shadow-emerald-500/15'
                         : 'border-white/10'
@@ -217,7 +217,7 @@ export default function TrafficSimulator() {
                     <div className="space-y-1.5 mb-3">
                       <div className="flex justify-between text-xs font-mono">
                         <span className="text-white/60">Vehicle Density:</span>
-                        <span className="text-[#FFA800] font-bold">{density}</span>
+                        <span className="text-[#818CF8] font-bold">{density}</span>
                       </div>
                       <input
                         type="range"
@@ -226,7 +226,7 @@ export default function TrafficSimulator() {
                         value={density}
                         onChange={(e) => handleSliderChange(dir.key, e.target.value)}
                         aria-label={`Vehicle count for ${dir.label}`}
-                        className="w-full h-1.5 bg-white/15 rounded-lg appearance-none cursor-pointer accent-[#FF6B35]"
+                        className="w-full h-1.5 bg-white/15 rounded-lg appearance-none cursor-pointer accent-[#6366F1]"
                       />
                     </div>
 
@@ -246,7 +246,7 @@ export default function TrafficSimulator() {
           </div>
 
           {/* Right Live Computation & Telemetry JSON (5 Cols) */}
-          <div className="lg:col-span-5 glass-code-window rounded-2xl p-5 space-y-4 border border-white/15 shadow-2xl">
+          <div className="lg:col-span-5 glass-panel rounded-2xl p-5 space-y-4 border border-white/15 shadow-2xl">
             
             <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono text-white/60">
               <span className="flex items-center gap-1.5 text-white font-medium">
@@ -300,7 +300,7 @@ export default function TrafficSimulator() {
             </div>
 
             <p className="text-[11px] text-white/50 leading-relaxed">
-              When <code className="text-[#FFA800]">total == 0</code>, allocations cleanly zero out in standby mode. When lanes are skewed, priority green duration dynamically extends up to 90s to clear vehicle backlogs.
+              When <code className="text-[#818CF8]">total == 0</code>, allocations cleanly zero out in standby mode. When lanes are skewed, priority green duration dynamically extends up to 90s to clear vehicle backlogs.
             </p>
 
           </div>

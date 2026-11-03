@@ -37,8 +37,8 @@ export default function Contact() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#FFA800] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#FFA800]/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFA800] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A5B4FC] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#818CF8]/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#818CF8] animate-pulse"></span>
             <span>Initiate Collaboration</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-display text-white tracking-tight">
@@ -55,9 +55,9 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-4">
             
             {/* Email Card */}
-            <div className="p-5 rounded-2xl glass-card flex items-center justify-between border border-white/15">
+            <div className="p-5 rounded-2xl glass-panel flex items-center justify-between border border-white/15">
               <div className="flex items-center gap-3">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#FFA800]">
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#818CF8]">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
@@ -66,7 +66,7 @@ export default function Contact() {
                   </span>
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="text-xs sm:text-sm font-mono text-white hover:text-[#FFA800] transition-colors"
+                    className="text-xs sm:text-sm font-mono text-white hover:text-[#818CF8] transition-colors"
                   >
                     {personalInfo.email}
                   </a>
@@ -83,9 +83,9 @@ export default function Contact() {
             </div>
 
             {/* Phone Card */}
-            <div className="p-5 rounded-2xl glass-card flex items-center justify-between border border-white/15">
+            <div className="p-5 rounded-2xl glass-panel flex items-center justify-between border border-white/15">
               <div className="flex items-center gap-3">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#FFA800]">
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#818CF8]">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
@@ -94,7 +94,7 @@ export default function Contact() {
                   </span>
                   <a
                     href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-                    className="text-xs sm:text-sm font-mono text-white hover:text-[#FFA800] transition-colors"
+                    className="text-xs sm:text-sm font-mono text-white hover:text-[#818CF8] transition-colors"
                   >
                     {personalInfo.phone}
                   </a>
@@ -111,7 +111,7 @@ export default function Contact() {
             </div>
 
             {/* Location Card */}
-            <div className="p-5 rounded-2xl glass-card flex items-center gap-3 border border-white/15">
+            <div className="p-5 rounded-2xl glass-panel flex items-center gap-3 border border-white/15">
               <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-emerald-400">
                 <MapPin className="w-4 h-4" />
               </div>
@@ -177,7 +177,7 @@ export default function Contact() {
                   className="flex items-center justify-between p-3 rounded-xl glass-dock hover:border-white/30 text-xs text-white transition-colors border border-white/10"
                 >
                   <span className="flex items-center gap-2">
-                    <span className="font-mono text-xs text-[#A855F7] font-bold">SI</span>
+                    <span className="font-mono text-xs text-[#C084FC] font-bold">SI</span>
                     <span>SmartInterviews</span>
                   </span>
                   <ExternalLink className="w-3 h-3 text-white/40" />
@@ -189,7 +189,7 @@ export default function Contact() {
 
           {/* Right Column: Direct Inquiry Message Form (7 Cols) */}
           <div className="lg:col-span-7">
-            <div className="p-7 sm:p-8 rounded-3xl glass-card border border-white/15 shadow-2xl">
+            <div className="p-7 sm:p-8 rounded-3xl glass-panel border border-white/15 shadow-2xl">
               <h3 className="text-lg font-bold font-display text-white mb-2">
                 Send a Direct Message
               </h3>
@@ -209,7 +209,7 @@ export default function Contact() {
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       placeholder="e.g. Satya Nadella"
-                      className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#FFA800] focus:ring-1 focus:ring-[#FFA800] text-xs text-white outline-none transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#818CF8] focus:ring-1 focus:ring-[#818CF8] text-xs text-white outline-none transition-colors"
                     />
                   </div>
 
@@ -223,7 +223,7 @@ export default function Contact() {
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                       placeholder="you@company.com"
-                      className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#FFA800] focus:ring-1 focus:ring-[#FFA800] text-xs text-white outline-none transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#818CF8] focus:ring-1 focus:ring-[#818CF8] text-xs text-white outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -238,18 +238,18 @@ export default function Contact() {
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     placeholder="Describe your role, collaboration project, or technical question..."
-                    className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#FFA800] focus:ring-1 focus:ring-[#FFA800] text-xs text-white outline-none transition-colors resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#818CF8] focus:ring-1 focus:ring-[#818CF8] text-xs text-white outline-none transition-colors resize-none"
                   />
                 </div>
 
                 <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
                   <span className="text-[11px] font-mono text-white/50">
-                    Dispatches directly to: <code className="text-[#FFA800]">{personalInfo.email}</code>
+                    Dispatches directly to: <code className="text-[#818CF8]">{personalInfo.email}</code>
                   </span>
 
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 text-xs font-bold btn-glass-primary px-6 py-2.5 rounded-xl cursor-pointer"
+                    className="inline-flex items-center gap-2 text-xs font-bold btn-aurora-primary px-6 py-2.5 rounded-xl cursor-pointer"
                   >
                     <span>Send Message</span>
                     <Send className="w-3.5 h-3.5" />

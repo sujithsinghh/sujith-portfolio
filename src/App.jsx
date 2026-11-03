@@ -12,38 +12,38 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-glassy-dashboard bg-grid-architectural text-[#F8FAFC] selection:bg-[#FF8A00]/40 selection:text-white relative">
-      {/* Floating Glass Island Dock */}
+    <div className="min-h-screen bg-aurora-luxe bg-grid-aurora text-[#F8FAFC] selection:bg-[#6366F1]/40 selection:text-white relative">
+      {/* Floating Island Navigation Dock */}
       <Navbar />
 
-      {/* Main Content Flow */}
+      {/* Main Content Sections */}
       <main className="relative z-10">
-        {/* Glass Dashboard Hero with Live Code & Visual Workstation */}
+        {/* Editorial Hero with Perfectly Aligned 3:4 Portrait & Workstation */}
         <Hero />
 
-        {/* Frosted Glass Metrics Strip (StatsCard from Reel) */}
+        {/* Verified Stats Bento Strip */}
         <MetricsStrip />
 
-        {/* Engineering Philosophy & Narrative */}
+        {/* Engineering Philosophy & Background */}
         <About />
 
-        {/* Interactive Glass Projects Studio */}
+        {/* Signature Interactive Projects Studio */}
         <Projects />
 
-        {/* Traffic Operations Terminal Simulator */}
+        {/* Real-Time Traffic Signal Command Console */}
         <TrafficSimulator />
 
-        {/* Glass Bento Skill Matrix */}
+        {/* Categorized Technical Skills Matrix */}
         <Skills />
 
-        {/* Education & Verified Certifications */}
+        {/* Education & Verified Industry Credentials */}
         <EducationAndCerts />
 
-        {/* Direct Contact & Collaboration Center */}
+        {/* Direct Contact & Collaboration Hub */}
         <Contact />
       </main>
 
-      {/* Glass Status Footer */}
+      {/* Modern Status Footer */}
       <Footer />
     </div>
   );

@@ -9,7 +9,7 @@ export default function Skills() {
       title: "Programming Languages",
       icon: Code,
       items: skillsData.languages,
-      accent: "text-[#FFA800]",
+      accent: "text-[#818CF8]",
       badge: "Core Logic"
     },
     {
@@ -37,14 +37,14 @@ export default function Skills() {
       title: "Computer Vision & Applied AI",
       icon: Brain,
       items: skillsData.machineLearning,
-      accent: "text-[#EC4899]",
+      accent: "text-[#F472B6]",
       badge: "OpenCV & AlexNet"
     },
     {
       title: "Developer Tools & Practices",
       icon: Wrench,
       items: skillsData.toolsPractices,
-      accent: "text-[#A78BFA]",
+      accent: "text-[#C084FC]",
       badge: "Git & DSA"
     },
   ];
@@ -55,8 +55,8 @@ export default function Skills() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#FFA800] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#FFA800]/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFA800] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A5B4FC] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#818CF8]/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#818CF8] animate-pulse"></span>
             <span>Verified Technical Capabilities</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-display text-white tracking-tight">
@@ -76,7 +76,7 @@ export default function Skills() {
                 key={category.title}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
-                className="p-6 rounded-3xl glass-card flex flex-col justify-between border border-white/15 group"
+                className="p-6 rounded-3xl glass-panel flex flex-col justify-between border border-white/15 group"
               >
                 <div>
                   {/* Category Title */}
@@ -103,7 +103,7 @@ export default function Skills() {
                         <span
                           key={skillName}
                           title={skillContext || skillName}
-                          className="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-white/80 group-hover:border-white/20 hover:text-[#FFA800] hover:bg-white/10 transition-colors cursor-default"
+                          className="px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-white/80 group-hover:border-white/20 hover:text-[#818CF8] hover:bg-white/10 transition-colors cursor-default"
                         >
                           {skillName}
                         </span>

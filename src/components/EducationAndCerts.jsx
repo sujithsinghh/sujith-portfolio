@@ -10,8 +10,8 @@ export default function EducationAndCerts() {
         
         {/* Section Header */}
         <div className="flex flex-col space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#FFA800] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#FFA800]/30">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFA800] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A5B4FC] uppercase tracking-wider self-start px-3.5 py-1.5 rounded-full glass-dock border border-[#818CF8]/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#818CF8] animate-pulse"></span>
             <span>Academic & Professional Credentials</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold font-display text-white tracking-tight">
@@ -27,7 +27,7 @@ export default function EducationAndCerts() {
           {/* Left Column: Education Timeline (6 Cols) */}
           <div className="lg:col-span-6 space-y-6">
             <h3 className="text-lg font-bold text-white flex items-center gap-2 pb-3 border-b border-white/10">
-              <GraduationCap className="w-5 h-5 text-[#FFA800]" />
+              <GraduationCap className="w-5 h-5 text-[#818CF8]" />
               <span>Academic Milestones</span>
             </h3>
 
@@ -36,20 +36,20 @@ export default function EducationAndCerts() {
                 <motion.div
                   key={edu.institution}
                   whileHover={{ y: -3 }}
-                  className="p-6 rounded-3xl glass-card space-y-3 border border-white/15 group"
+                  className="p-6 rounded-3xl glass-panel space-y-3 border border-white/15 group"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-mono font-bold text-[#FFA800]">
+                    <span className="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-mono font-bold text-[#A5B4FC]">
                       {edu.score}
                     </span>
                     <span className="text-xs font-mono text-white/60 flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-[#FFA800]" />
+                      <Calendar className="w-3 h-3 text-[#818CF8]" />
                       <span>{edu.period}</span>
                     </span>
                   </div>
 
                   <div>
-                    <h4 className="text-base font-bold text-white group-hover:text-[#FFA800] transition-colors">
+                    <h4 className="text-base font-bold text-white group-hover:text-[#818CF8] transition-colors">
                       {edu.degree}
                     </h4>
                     <p className="text-xs text-white/60 flex items-center gap-1 mt-0.5">
@@ -65,7 +65,7 @@ export default function EducationAndCerts() {
               ))}
 
               {/* Competitive Examination Milestone */}
-              <div className="p-6 rounded-2xl glass-card space-y-2 border border-white/15">
+              <div className="p-6 rounded-2xl glass-panel space-y-2 border border-white/15">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-white font-medium">State Engineering Entrance</span>
                   <span className="text-emerald-400 font-bold">TS EAMCET 2023</span>
@@ -89,7 +89,7 @@ export default function EducationAndCerts() {
                 <motion.div
                   key={cert.title || cert.credentialId}
                   whileHover={{ y: -3 }}
-                  className="p-5 rounded-2xl glass-card border border-white/15 space-y-2 group"
+                  className="p-5 rounded-2xl glass-panel border border-white/15 space-y-2 group"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
@@ -103,7 +103,7 @@ export default function EducationAndCerts() {
                           </span>
                         )}
                       </div>
-                      <h4 className="text-sm font-bold text-white group-hover:text-[#FFA800] transition-colors mt-1.5">
+                      <h4 className="text-sm font-bold text-white group-hover:text-[#818CF8] transition-colors mt-1.5">
                         {cert.title}
                       </h4>
                     </div>

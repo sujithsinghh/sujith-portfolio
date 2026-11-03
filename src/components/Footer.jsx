@@ -27,14 +27,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-12 bg-black/40 text-white/60 text-xs font-mono relative border-t border-white/10 backdrop-blur-xl">
+    <footer className="py-12 bg-black/50 text-white/60 text-xs font-mono relative border-t border-white/10 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
           
           {/* Brand info */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF6B35] to-[#FFA800] border border-white/20 flex items-center justify-center font-bold text-white text-xs shadow-inner">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#6366F1] to-[#D946EF] border border-white/20 flex items-center justify-center font-bold text-white text-xs shadow-inner">
               MS
             </div>
             <div>
@@ -56,7 +56,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full glass-dock text-white/70 border border-white/15">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#FFA800]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#818CF8]" />
               <span>Verified Portfolio Data</span>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function Footer() {
             className="flex items-center gap-1.5 text-xs text-white/70 hover:text-white px-4 py-2 rounded-full glass-dock border border-white/15 hover:border-white/30 transition-colors cursor-pointer"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-3 h-3 text-[#FFA800]" />
+            <ArrowUp className="w-3 h-3 text-[#818CF8]" />
           </button>
 
         </div>
@@ -78,8 +78,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Matta Sujith Singh. All rights reserved.
           </p>
           <div className="flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-[#FFA800]" />
-            <span>Glassy Dashboard V5 · Built with React 18, Vite, Tailwind CSS & Framer Motion</span>
+            <Zap className="w-3.5 h-3.5 text-[#818CF8]" />
+            <span>Built with React 18, Vite, Tailwind CSS & Framer Motion</span>
           </div>
         </div>
 

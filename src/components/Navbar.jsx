@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, ArrowUpRight, Sparkles, Terminal, Activity } from 'lucide-react';
+import { Menu, X, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Navbar() {
@@ -29,7 +29,7 @@ export default function Navbar() {
     { name: 'Projects', href: '#projects', id: 'projects' },
     { name: 'Simulator', href: '#traffic-sim', id: 'traffic-sim' },
     { name: 'Skills', href: '#skills', id: 'skills' },
-    { name: 'Credentials', href: '#education', id: 'education' },
+    { name: 'Education', href: '#education', id: 'education' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
@@ -42,11 +42,11 @@ export default function Navbar() {
           href="#"
           className="flex items-center gap-3 p-1.5 pr-4 rounded-full glass-dock group transition-all duration-300 hover:border-white/30 hover:scale-[1.02]"
         >
-          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#FF6B35] to-[#FFA800] border border-white/30 flex items-center justify-center font-mono font-bold text-white text-xs tracking-wider shadow-lg shadow-orange-500/20">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#6366F1] via-[#8B5CF6] to-[#D946EF] border border-white/30 flex items-center justify-center font-mono font-bold text-white text-xs tracking-wider shadow-lg shadow-indigo-500/25">
             MS
           </div>
           <div className="flex flex-col text-left">
-            <span className="font-bold text-xs text-white tracking-tight group-hover:text-[#FFA800] transition-colors">
+            <span className="font-bold text-xs text-white tracking-tight group-hover:text-[#A5B4FC] transition-colors">
               Matta Sujith Singh
             </span>
             <span className="text-[10px] font-mono text-white/60">
@@ -65,7 +65,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`relative px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                   isActive
-                    ? 'text-white bg-white/15 border border-white/20 shadow-inner font-semibold'
+                    ? 'text-white bg-white/20 border border-white/25 shadow-inner font-semibold'
                     : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -90,11 +90,11 @@ export default function Navbar() {
             download="Matta_Sujith_Singh_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full btn-glass-primary cursor-pointer"
+            className="flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full btn-aurora-primary cursor-pointer"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>Resume</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-orange-100" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-indigo-100" />
           </a>
         </div>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
             download="Matta_Sujith_Singh_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full btn-glass-primary text-xs font-bold"
+            className="p-2 rounded-full btn-aurora-primary text-xs font-bold"
             aria-label="Download resume"
           >
             <FileText className="w-3.5 h-3.5" />
@@ -122,7 +122,7 @@ export default function Navbar() {
 
       </div>
 
-      {/* Mobile Glass Drawer Menu */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden mt-3 max-w-7xl mx-auto glass-dock rounded-2xl p-4 shadow-2xl border border-white/20 animate-fadeIn pointer-events-auto">
           <div className="flex flex-col space-y-2">

@@ -2,29 +2,28 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, GraduationCap, Award, Globe, ShieldCheck } from 'lucide-react';
 
-// The exact StatsCard component from the user's uploaded Glassy Dashboard V5 screenshot!
 const StatsCard = ({ title, value, change, icon: Icon, detail }) => {
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      transition={{ duration: 0.2 }}
-      className="glass-card p-6 rounded-2xl border border-white/15 relative overflow-hidden group"
+      transition={{ duration: 0.25 }}
+      className="glass-panel p-6 rounded-3xl border border-white/15 relative overflow-hidden group"
     >
       <div className="flex items-start justify-between">
         <div className="space-y-1">
           <p className="text-sm text-white/60 font-medium">{title}</p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{value}</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{value}</h2>
           <p className="flex items-center gap-1 text-xs sm:text-sm text-emerald-400 font-mono font-medium pt-1">
             <ArrowUpRight size={16} /> {change}
           </p>
         </div>
 
-        <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[#FFA800] group-hover:scale-110 group-hover:bg-[#FF6B35]/20 group-hover:border-[#FF6B35]/40 transition-all duration-300">
+        <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-[#818CF8] group-hover:scale-110 group-hover:bg-[#6366F1]/20 group-hover:border-[#6366F1]/40 transition-all duration-300">
           <Icon className="w-5 h-5" />
         </div>
       </div>
 
-      <div className="mt-3 pt-3 border-t border-white/10 text-[11px] text-white/50 line-clamp-1">
+      <div className="mt-3.5 pt-3 border-t border-white/10 text-[11px] text-white/50 line-clamp-1 font-mono">
         {detail}
       </div>
     </motion.div>
