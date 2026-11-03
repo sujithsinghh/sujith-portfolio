@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, Layers, AlertCircle, CheckCircle2 } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import { X, ExternalLink, Layers, CheckCircle2 } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -10,8 +9,7 @@ export default function ProjectModal({ project, onClose }) {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
-    
-    // Only lock scroll when modal is actually open
+
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
@@ -24,58 +22,44 @@ export default function ProjectModal({ project, onClose }) {
   if (!project) return null;
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-xs"
       onClick={onClose}
     >
-      {/* Modal Dialog Card */}
-      <div 
-        className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-[#13161F] rounded-2xl p-6 sm:p-8 shadow-2xl text-left border border-[#202534]"
+      <div
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white border border-[#E5E1D8] p-6 sm:p-8 shadow-xl text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-lg bg-[#0C0E12] border border-[#202534] text-[#949EAE] hover:text-[#F3F4F6] hover:border-[#384055] transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 bg-[#FAF8F5] border border-[#E5E1D8] text-[#5C6069] hover:text-[#121316] transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Modal Header */}
-        <div className="space-y-3 pb-6 border-b border-[#202534]">
-          <span className="inline-block px-2.5 py-1 rounded bg-[#0C0E12] border border-[#202534] text-xs font-mono text-[#F59E0B] font-semibold">
-            {project.category}
+        <div className="space-y-2 pb-6 border-b border-[#E5E1D8]">
+          <span className="font-mono text-xs text-[#9E3514] font-semibold uppercase tracking-wider block">
+            {project.period || 'Case Study Details'} · {project.category}
           </span>
-          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F3F4F6]">
+          <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#121316]">
             {project.title}
           </h3>
-          <p className="text-sm text-[#949EAE] leading-relaxed">
-            {project.tagline || project.shortDescription}
+          <p className="text-sm text-[#5C6069] leading-relaxed">
+            {project.tagline || project.summary}
           </p>
-          
-          {/* Action Links */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+
+          <div className="flex flex-wrap gap-2.5 pt-2">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary text-xs !py-2 !px-3.5 inline-flex items-center gap-2"
+                className="editorial-btn-dark !py-1.5 !px-3 !text-[11px]"
               >
-                <GithubIcon className="w-3.5 h-3.5" />
-                <span>GitHub Repository</span>
-              </a>
-            )}
-            {project.liveDemo && (
-              <a
-                href={project.liveDemo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-xs !py-2 !px-3.5 inline-flex items-center gap-2"
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-                <span>Live Demonstration</span>
+                <span>View GitHub Repository ↗</span>
               </a>
             )}
           </div>
@@ -84,21 +68,33 @@ export default function ProjectModal({ project, onClose }) {
         {/* Modal Body */}
         <div className="py-6 space-y-6">
           
+          {/* Summary */}
+          {project.summary && (
+            <div className="space-y-2">
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[#5C6069]">
+                System Overview
+              </h4>
+              <p className="text-sm text-[#121316] leading-relaxed">
+                {project.summary}
+              </p>
+            </div>
+          )}
+
           {/* Architecture Details */}
           {project.architectureDetails && (
             <div className="space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-[#F59E0B] flex items-center gap-2">
-                <Layers className="w-3.5 h-3.5 text-[#F59E0B]" />
-                <span>Architectural Breakdown</span>
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[#9E3514] flex items-center gap-1.5 font-semibold">
+                <Layers className="w-3.5 h-3.5" />
+                <span>Architectural Components</span>
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                {Object.entries(project.architectureDetails).map(([key, value]) => (
-                  <div key={key} className="p-3.5 rounded-lg bg-[#0C0E12] border border-[#202534] space-y-1">
-                    <span className="font-mono text-[#F59E0B] uppercase text-[10px] tracking-wider block font-bold">
+                {Object.entries(project.architectureDetails).map(([key, val]) => (
+                  <div key={key} className="p-3.5 bg-[#FAF8F5] border border-[#E5E1D8] space-y-1">
+                    <span className="font-mono text-[#9E3514] uppercase text-[10px] tracking-wider block font-bold">
                       {key}
                     </span>
-                    <p className="text-[#949EAE] leading-relaxed text-[11px]">
-                      {value}
+                    <p className="text-[#5C6069] leading-relaxed">
+                      {val}
                     </p>
                   </div>
                 ))}
@@ -106,65 +102,49 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           )}
 
-          {/* Key Features List */}
-          {project.keyFeatures && (
+          {/* Bullet Points */}
+          {project.bulletPoints && (
             <div className="space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-[#10B981] flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" />
-                <span>Implemented System Capabilities</span>
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[#121316] font-semibold">
+                Core Engineering Implementations
               </h4>
-              <ul className="space-y-2">
-                {project.keyFeatures.map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs text-[#949EAE]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] mt-1.5 shrink-0"></span>
-                    <span className="leading-relaxed">{feat}</span>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#5C6069]">
+                {project.bulletPoints.map((item, idx) => (
+                  <li key={idx} className="pl-4 relative leading-relaxed">
+                    <span className="absolute left-0 text-[#9E3514] font-bold">—</span>
+                    <strong className="text-[#121316] font-medium">{item.lead}:</strong> {item.text}
                   </li>
                 ))}
               </ul>
             </div>
           )}
 
-          {/* Technical Challenges & Solutions */}
-          {project.challenges && (
-            <div className="space-y-3">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-amber-400 flex items-center gap-2">
-                <AlertCircle className="w-3.5 h-3.5 text-amber-400" />
-                <span>Engineering Challenges Handled</span>
+          {/* Technologies Tag Cloud */}
+          {project.technologies && (
+            <div className="space-y-2 pt-2 border-t border-[#E5E1D8]">
+              <h4 className="font-mono text-[10px] uppercase tracking-wider text-[#5C6069]">
+                Verified Technologies
               </h4>
-              <div className="space-y-2">
-                {project.challenges.map((ch, idx) => (
-                  <div key={idx} className="p-3 rounded-lg bg-[#0C0E12] border border-[#202534] text-xs text-[#949EAE] leading-relaxed">
-                    {ch}
-                  </div>
+              <div className="flex flex-wrap gap-1.5">
+                {project.technologies.map((t) => (
+                  <span
+                    key={t}
+                    className="font-mono text-[11px] bg-[#FAF8F5] border border-[#E5E1D8] px-2 py-0.5 text-[#5C6069]"
+                  >
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Technologies Used Grid */}
-          <div className="space-y-3 pt-2">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-[#949EAE]">
-              Verified Tech Stack
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2.5 py-1 rounded-md bg-[#0C0E12] border border-[#202534] text-xs font-mono text-[#949EAE]"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
         </div>
 
         {/* Modal Footer */}
-        <div className="pt-4 border-t border-[#202534] flex justify-end">
+        <div className="pt-4 border-t border-[#E5E1D8] flex justify-end">
           <button
             onClick={onClose}
-            className="btn-primary text-xs !py-2 !px-4"
+            className="editorial-btn-dark !py-1.5 !px-4 !text-xs cursor-pointer"
           >
             Close Details
           </button>

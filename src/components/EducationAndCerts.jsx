@@ -1,156 +1,100 @@
 import React from 'react';
-import { GraduationCap, ShieldCheck, ExternalLink, Calendar, MapPin, CheckCircle2, Award } from 'lucide-react';
-import { educationData, certificationsData } from '../data/portfolioData';
+import { ExternalLink } from 'lucide-react';
+import { educationHistory, certificationsHistory } from '../data/portfolioData';
 
 export default function EducationAndCerts() {
   return (
-    <section id="education" className="pt-8">
+    <section id="credentials" className="pt-8 pb-12 border-b border-[#E5E1D8]">
+      
       {/* Section Header */}
-      <div className="flex flex-col space-y-3 mb-10">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
-          <span className="font-mono text-xs uppercase tracking-widest text-[#949EAE]">
-            Credentials & Background
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-[#E5E1D8]">
+        <div>
+          <span className="font-mono text-xs uppercase tracking-wider text-[#9E3514] font-semibold block mb-2">
+            Section 03 / Background
           </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#121316] font-normal tracking-tight">
+            Education & Credentials
+          </h2>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#F3F4F6]">
-          Academic History & Certifications
-        </h2>
-        <p className="text-[#949EAE] text-sm sm:text-base max-w-3xl leading-relaxed">
-          Documented academic progression and industry credentials validated through rigorous coursework, state entrance examinations, and certified examinations.
+        <p className="text-sm text-[#5C6069] max-w-md leading-relaxed md:text-right">
+          Documented academic record, competitive examination percentiles, and verified engineering certifications.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pt-8">
         
-        {/* Left Column: Academic Progression (6 Cols) */}
-        <div className="lg:col-span-6 space-y-4">
-          <div className="flex items-center gap-2 pb-2 border-b border-[#202534] text-xs font-mono uppercase tracking-wider text-[#949EAE]">
-            <GraduationCap className="w-4 h-4 text-[#F59E0B]" />
-            <span>Formal Education</span>
+        {/* Left Column: Academic Progression (6 cols) */}
+        <div className="lg:col-span-6 space-y-8">
+          <div className="font-mono text-xs uppercase tracking-wider text-[#121316] font-semibold pb-3 border-b border-[#121316]">
+            Academic Record
           </div>
 
-          <div className="space-y-4">
-            {educationData.map((edu) => (
-              <div
-                key={edu.institution}
-                className="p-5 rounded-xl bg-[#13161F] border border-[#202534] hover:border-[#384055] transition-all space-y-3 group"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="px-2.5 py-1 rounded bg-[#0C0E12] border border-[#202534] text-xs font-mono font-bold text-[#F59E0B]">
-                    {edu.score}
-                  </span>
-                  <span className="text-xs font-mono text-[#949EAE] flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#949EAE]" />
-                    <span>{edu.period}</span>
-                  </span>
+          <div className="space-y-6">
+            {educationHistory.map((edu) => (
+              <div key={edu.institution} className="space-y-1.5 pb-6 border-b border-[#E5E1D8] last:border-b-0">
+                <div className="flex justify-between font-mono text-xs text-[#5C6069]">
+                  <span>{edu.period}</span>
+                  <span className="text-[#9E3514] font-semibold">{edu.score}</span>
                 </div>
 
-                <div>
-                  <h3 className="text-base font-semibold text-[#F3F4F6] group-hover:text-white transition-colors">
-                    {edu.degree}
-                  </h3>
-                  <p className="text-xs text-[#949EAE] flex items-center gap-1 mt-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#949EAE]" />
-                    <span>{edu.institution}, {edu.location}</span>
-                  </p>
+                <h3 className="font-serif text-xl text-[#121316] font-medium leading-snug">
+                  {edu.institution}
+                </h3>
+
+                <div className="text-xs text-[#5C6069]">
+                  {edu.degree} · {edu.location}
                 </div>
 
-                <p className="text-xs text-[#949EAE] leading-relaxed pt-1">
+                <p className="text-xs sm:text-sm text-[#5C6069] leading-relaxed pt-1">
                   {edu.details}
                 </p>
               </div>
             ))}
-
-            {/* Competitive Examination Standout */}
-            <div className="p-5 rounded-xl bg-[#13161F] border border-[#202534] space-y-2">
-              <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-[#F3F4F6] font-medium flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5 text-[#F59E0B]" />
-                  <span>TS EAMCET 2023 (Engineering Entrance)</span>
-                </span>
-                <span className="text-[#10B981] font-bold">State Rank 13,182</span>
-              </div>
-              <p className="text-xs text-[#949EAE] leading-relaxed">
-                Achieved top percentile state rank with 68.30 normalized marks in Mathematics, Physics, and Chemistry, securing merit-based admission into BVRIT Computer Science & Engineering.
-              </p>
-            </div>
           </div>
         </div>
 
-        {/* Right Column: Verified Industry Certifications (6 Cols) */}
-        <div className="lg:col-span-6 space-y-4">
-          <div className="flex items-center gap-2 pb-2 border-b border-[#202534] text-xs font-mono uppercase tracking-wider text-[#949EAE]">
-            <ShieldCheck className="w-4 h-4 text-[#10B981]" />
-            <span>Verified Credentials</span>
+        {/* Right Column: Certifications & Competitions (6 cols) */}
+        <div className="lg:col-span-6 space-y-8">
+          <div className="font-mono text-xs uppercase tracking-wider text-[#121316] font-semibold pb-3 border-b border-[#121316]">
+            Certifications & Industry Credentials
           </div>
 
-          <div className="space-y-3">
-            {certificationsData.map((cert) => (
-              <div
-                key={cert.title || cert.credentialId}
-                className="p-4 rounded-xl bg-[#13161F] border border-[#202534] hover:border-[#384055] transition-all space-y-2 group"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded border border-[#10B981]/20">
-                        {cert.issuer}
-                      </span>
-                      {cert.credentialId && (
-                        <span className="text-[10px] font-mono text-[#949EAE]">
-                          ID: {cert.credentialId}
-                        </span>
-                      )}
-                    </div>
-                    <h4 className="text-sm font-semibold text-[#F3F4F6] group-hover:text-white transition-colors mt-1.5">
-                      {cert.title}
-                    </h4>
-                  </div>
-
-                  <span className="text-[11px] font-mono text-[#949EAE] shrink-0">
-                    {cert.date}
-                  </span>
+          <div className="space-y-6">
+            {certificationsHistory.map((cert) => (
+              <div key={cert.title} className="space-y-1.5 pb-6 border-b border-[#E5E1D8] last:border-b-0">
+                <div className="flex justify-between font-mono text-xs text-[#5C6069]">
+                  <span>{cert.issuer} · {cert.date}</span>
+                  <span className="text-[#9E3514] font-semibold">{cert.score}</span>
                 </div>
 
-                <p className="text-xs text-[#949EAE] leading-relaxed">
-                  {cert.highlight || cert.description}
+                <h4 className="font-serif text-lg text-[#121316] font-medium leading-snug">
+                  {cert.title}
+                </h4>
+
+                <p className="text-xs sm:text-sm text-[#5C6069] leading-relaxed">
+                  {cert.details}
                 </p>
 
-                {cert.subscore && (
-                  <p className="text-[11px] font-mono text-[#949EAE]">
-                    {cert.subscore}
-                  </p>
-                )}
-
-                <div className="pt-2 flex items-center justify-between text-xs font-mono">
-                  {cert.score ? (
-                    <span className="text-[#10B981] flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>{cert.score}</span>
-                    </span>
-                  ) : (
-                    <span className="text-[#949EAE]">Verified Completion</span>
-                  )}
-
-                  {cert.verifyUrl && (
+                {cert.verifyUrl && (
+                  <div className="pt-1">
                     <a
                       href={cert.verifyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#949EAE] hover:text-[#F3F4F6] flex items-center gap-1 transition-colors text-[11px]"
+                      className="font-mono text-[11px] text-[#5C6069] hover:text-[#9E3514] inline-flex items-center gap-1 transition-colors"
                     >
                       <span>Verify Credential</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
       </div>
+
     </section>
   );
 }

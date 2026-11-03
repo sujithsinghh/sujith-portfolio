@@ -2,9 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MetricsStrip from './components/MetricsStrip';
-import About from './components/About';
 import Projects from './components/Projects';
-import TrafficSimulator from './components/TrafficSimulator';
 import Skills from './components/Skills';
 import EducationAndCerts from './components/EducationAndCerts';
 import Contact from './components/Contact';
@@ -12,39 +10,33 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#0C0E12] text-[#F3F4F6] selection:bg-[#F59E0B]/30 selection:text-white">
-      {/* Top Navigation */}
+    <div className="min-h-screen bg-[#FAF8F5] text-[#121316] selection:bg-[#9E3514]/15 selection:text-[#121316]">
+      {/* Top Editorial Masthead */}
       <Navbar />
 
-      {/* Main Content Container with Strict Alignment */}
-      <main className="max-w-6xl mx-auto px-6 sm:px-8 space-y-24 sm:space-y-32 pt-28 pb-24">
-        {/* Editorial Hero */}
+      {/* Main Broad-Sheet Container */}
+      <main className="max-w-[1160px] mx-auto px-5 sm:px-8 space-y-12 sm:space-y-16">
+        {/* Editorial Broadsheet Hero with Fig. 01 Portrait Plate */}
         <Hero />
 
-        {/* Verified Track Record & Academic Metrics */}
+        {/* Academic & Competition Ledger Strip */}
         <MetricsStrip />
 
-        {/* Engineering Background & Philosophy */}
-        <About />
-
-        {/* Flagship & Specialized Project Case Studies */}
+        {/* Section 01: Case Studies + Embedded Fig. 02 Test Bench + Curated Works */}
         <Projects />
 
-        {/* Interactive Traffic Signal Optimization Simulation */}
-        <TrafficSimulator />
-
-        {/* Categorized Technical Skills */}
+        {/* Section 02: Technical Capabilities & Typographic Index */}
         <Skills />
 
-        {/* Academic History & Verified Certifications */}
+        {/* Section 03: Curriculum Vitae & Verified Credentials */}
         <EducationAndCerts />
 
-        {/* Direct Contact & Inquiry Form */}
+        {/* Section 04: Inquiries Letterhead & Direct Communication */}
         <Contact />
-      </main>
 
-      {/* Site Footer */}
-      <Footer />
+        {/* Colophon & Footer */}
+        <Footer />
+      </main>
     </div>
   );
 }

@@ -1,380 +1,397 @@
-import React, { useState } from 'react';
-import { ExternalLink, Layers, Award, ChevronRight, Terminal, ArrowDown } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { ExternalLink, ChevronRight, Sliders, RefreshCw, Zap, Ban, Play } from 'lucide-react';
 import { projects } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
-import { GithubIcon } from './Icons';
 
 export default function Projects() {
   const [activeModalProject, setActiveModalProject] = useState(null);
 
-  const flagshipTourist = projects.find((p) => p.id === 'tourist-guide');
-  const flagshipTraffic = projects.find((p) => p.id === 'traffic-optimization');
-  const secondaryProjects = projects.filter((p) => !p.featured);
+  // Embedded Interactive Simulator State for Fig. 02
+  const [densities, setDensities] = useState({
+    north: 65,
+    south: 85,
+    east: 35,
+    west: 20,
+  });
+
+  const { total, allocations, activeLane, greenTimes } = useMemo(() => {
+    const sum = densities.north + densities.south + densities.east + densities.west;
+    if (sum === 0) {
+      return {
+        total: 0,
+        allocations: { north: 0, south: 0, east: 0, west: 0 },
+        activeLane: null,
+        greenTimes: { north: 0, south: 0, east: 0, west: 0 }
+      };
+    }
+    const allocs = {
+      north: Math.round((densities.north / sum) * 100),
+      south: Math.round((densities.south / sum) * 100),
+      east: Math.round((densities.east / sum) * 100),
+      west: Math.round((densities.west / sum) * 100),
+    };
+    let highest = null;
+    let maxVal = -1;
+    for (const [lane, val] of Object.entries(densities)) {
+      if (val > maxVal && val > 0) {
+        maxVal = val;
+        highest = lane;
+      }
+    }
+    const times = {
+      north: densities.north > 0 ? Math.max(10, Math.round((allocs.north / 100) * 90)) : 0,
+      south: densities.south > 0 ? Math.max(10, Math.round((allocs.south / 100) * 90)) : 0,
+      east: densities.east > 0 ? Math.max(10, Math.round((allocs.east / 100) * 90)) : 0,
+      west: densities.west > 0 ? Math.max(10, Math.round((allocs.west / 100) * 90)) : 0,
+    };
+    return { total: sum, allocations: allocs, activeLane: highest, greenTimes: times };
+  }, [densities]);
+
+  const handleSlider = (lane, val) => {
+    setDensities(prev => ({ ...prev, [lane]: Math.max(0, Math.min(100, Number(val))) }));
+  };
+
+  const setSurge = () => {
+    setDensities({ north: 75, south: 95, east: 45, west: 30 });
+  };
+  const setBalanced = () => {
+    setDensities({ north: 40, south: 40, east: 40, west: 40 });
+  };
+  const setBottleneck = () => {
+    setDensities({ north: 5, south: 95, east: 10, west: 0 });
+  };
+  const setZero = () => {
+    setDensities({ north: 0, south: 0, east: 0, west: 0 });
+  };
+
+  const flagshipTourist = projects.find(p => p.id === 'tourist-guide');
+  const flagshipTraffic = projects.find(p => p.id === 'traffic-optimization');
+  const secondaryProjects = projects.filter(p => !p.featured);
+
+  const corridors = [
+    { key: 'north', name: 'North Corridor', tag: 'CORRIDOR 01' },
+    { key: 'south', name: 'South Corridor', tag: 'CORRIDOR 02' },
+    { key: 'east', name: 'East Corridor', tag: 'CORRIDOR 03' },
+    { key: 'west', name: 'West Corridor', tag: 'CORRIDOR 04' },
+  ];
 
   return (
-    <section id="projects" className="py-2 border-b border-[#202534]">
+    <section id="projects" className="pt-8 pb-12 border-b border-[#E5E1D8]">
+      
       {/* Section Header */}
-      <div className="mb-12">
-        <span className="text-xs font-mono text-[#F59E0B] uppercase tracking-wider block mb-2">
-          02 / Case Studies
-        </span>
-        <h2 className="text-2xl sm:text-3xl font-bold font-display text-white tracking-tight">
-          Featured Engineering Work
-        </h2>
-        <p className="text-sm sm:text-base text-[#949EAE] mt-2 max-w-2xl">
-          Detailed case studies of applications built with production full-stack architectures, multi-API orchestration, and real-time computer vision models.
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-[#E5E1D8]">
+        <div>
+          <span className="font-mono text-xs uppercase tracking-wider text-[#9E3514] font-semibold block mb-2">
+            Section 01 / Case Studies
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#121316] font-normal tracking-tight">
+            Selected Engineering Work
+          </h2>
+        </div>
+        <p className="text-sm text-[#5C6069] max-w-md leading-relaxed md:text-right">
+          Verified systems built with end-to-end full-stack architectures, real-time external APIs, and OpenCV computer vision pipelines.
         </p>
       </div>
 
-      <div className="space-y-12 pb-16">
-        
-        {/* ========================================================= */}
-        {/* Flagship Case Study 1: Smart Tourist Guide & Budget Planner */}
-        {/* ========================================================= */}
+      <div className="space-y-16 pt-8">
+
+        {/* ======================================================== */}
+        {/* Case Study 01: Smart Tourist Guide and Budget Planner   */}
+        {/* ======================================================== */}
         {flagshipTourist && (
-          <div className="editorial-card rounded-2xl p-6 sm:p-8 space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-[#202534]">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono text-[#F59E0B] font-semibold bg-[#1C1A14] border border-[#3E3219] px-2.5 py-1 rounded">
-                  FLAGSHIP 01 · {flagshipTourist.category}
-                </span>
-                <span className="text-xs font-mono text-[#949EAE]">
-                  MERN Full-Stack
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                {(flagshipTourist.github || flagshipTourist.githubUrl) && (
-                  <a
-                    href={flagshipTourist.github || flagshipTourist.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"
-                  >
-                    <GithubIcon className="w-3.5 h-3.5" />
-                    <span>View Repository</span>
-                  </a>
-                )}
-                <button
-                  onClick={() => setActiveModalProject(flagshipTourist)}
-                  className="btn-primary text-xs px-3.5 py-1.5 rounded-lg flex items-center gap-1 cursor-pointer"
-                >
-                  <span>Detailed Specs</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <article className="pt-4 pb-8 border-b border-[#E5E1D8]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
               
-              {/* Left Column: Context, Problem, Engineering (7 Cols) */}
-              <div className="lg:col-span-7 space-y-4">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
-                    {flagshipTourist.title}
-                  </h3>
-                  <p className="text-sm text-[#E2E8F0] mt-1 font-medium">
-                    {flagshipTourist.tagline}
-                  </p>
-                </div>
-
-                <p className="text-xs sm:text-sm text-[#949EAE] leading-relaxed">
-                  Travelers frequently encounter budgeting friction when planning multi-day trips across unfamiliar destinations. WanderAI was engineered to centralize hotel pricing, meteorological forecasts, and local landmarks into a single reactive planning dashboard.
-                </p>
-
-                <div className="space-y-2 pt-1">
-                  <span className="text-xs font-mono text-white uppercase tracking-wider block">
-                    Core Technical Implementations:
-                  </span>
-                  <ul className="space-y-2 text-xs sm:text-sm text-[#949EAE]">
-                    <li className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mt-2 shrink-0"></span>
-                      <span>
-                        <strong className="text-white">Multi-Service API Pipeline:</strong> Engineered backend handlers orchestrating requests to 6 distinct REST APIs: Amadeus (hotel pricing), OpenWeather (forecasts), Foursquare (places), Visual Crossing (historical patterns), Wikipedia (summaries), and Gemini AI (custom itineraries).
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mt-2 shrink-0"></span>
-                      <span>
-                        <strong className="text-white">Schema Normalization:</strong> Designed Node.js middleware to ingest unstructured and divergent API responses into a unified client-side state model with fallback error boundaries.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mt-2 shrink-0"></span>
-                      <span>
-                        <strong className="text-white">Secure Authentication:</strong> Implemented stateless user sessions using JSON Web Tokens (JWT) and bcryptjs hashing over MongoDB Atlas clusters.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Tech Pills */}
-                <div className="pt-2">
-                  <span className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider block mb-2">
-                    Verified Stack:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {flagshipTourist.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-0.5 rounded text-xs font-mono bg-[#1A1F2C] border border-[#202534] text-[#E2E8F0]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Architectural Flow Ledger (5 Cols) */}
-              <div className="lg:col-span-5 bg-[#0C0E12] border border-[#202534] rounded-xl p-5 space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#202534] text-xs font-mono text-[#949EAE]">
-                  <span className="text-white font-medium flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-[#F59E0B]" />
-                    <span>Orchestration Architecture</span>
-                  </span>
-                  <span>REST / JSON</span>
-                </div>
-
-                <div className="space-y-3 font-mono text-xs">
-                  <div className="p-3 rounded-lg bg-[#13161F] border border-[#202534] space-y-1">
-                    <span className="text-[#F59E0B] font-semibold text-[11px] block">
-                      01 / Client Dispatch (React 18)
-                    </span>
-                    <p className="text-[#949EAE] text-[11px] leading-relaxed">
-                      Captures destination parameters, travel dates, and tier mode (Budget / Standard / Luxury).
-                    </p>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-[#13161F] border border-[#202534] space-y-1">
-                    <span className="text-[#F59E0B] font-semibold text-[11px] block">
-                      02 / Node.js & Express Coordinator
-                    </span>
-                    <p className="text-[#949EAE] text-[11px] leading-relaxed">
-                      Dispatches parallel requests to Amadeus, OpenWeather, and Foursquare with timeout safety floors.
-                    </p>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-[#13161F] border border-[#202534] space-y-1">
-                    <span className="text-[#F59E0B] font-semibold text-[11px] block">
-                      03 / Normalization & Persistence
-                    </span>
-                    <p className="text-[#949EAE] text-[11px] leading-relaxed">
-                      Transforms raw payloads into unified models; persists user bookmarks and history to MongoDB.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-2 text-[11px] text-[#64748B] font-mono">
-                  Repository: github.com/sujithsinghh/Tourist_Guide
-                </div>
-              </div>
-
-            </div>
-          </div>
-        )}
-
-        {/* ========================================================= */}
-        {/* Flagship Case Study 2: Smart Traffic Signal Optimization */}
-        {/* ========================================================= */}
-        {flagshipTraffic && (
-          <div className="editorial-card rounded-2xl p-6 sm:p-8 space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-[#202534]">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono text-[#F59E0B] font-semibold bg-[#1C1A14] border border-[#3E3219] px-2.5 py-1 rounded">
-                  FLAGSHIP 02 · {flagshipTraffic.category}
+              {/* Left Meta Column (5 Cols) */}
+              <div className="lg:col-span-5 space-y-4">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#9E3514] font-semibold block">
+                  {flagshipTourist.period} · Case Study 01
                 </span>
-                <span className="inline-flex items-center gap-1 text-xs font-mono text-emerald-400 bg-[#0E1C16] border border-[#173D2C] px-2.5 py-1 rounded">
-                  <Award className="w-3.5 h-3.5" />
-                  <span>SIH '24 National Qualifier</span>
+                
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#121316] font-medium leading-tight">
+                  {flagshipTourist.title}
+                </h3>
+
+                <span className="font-mono text-xs text-[#5C6069] uppercase tracking-wider block">
+                  {flagshipTourist.category}
                 </span>
-              </div>
 
-              <div className="flex items-center gap-3">
-                {(flagshipTraffic.github || flagshipTraffic.githubUrl) && (
-                  <a
-                    href={flagshipTraffic.github || flagshipTraffic.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"
-                  >
-                    <GithubIcon className="w-3.5 h-3.5" />
-                    <span>View Repository</span>
-                  </a>
-                )}
-                <a
-                  href="#traffic-sim"
-                  className="btn-primary text-xs px-3.5 py-1.5 rounded-lg flex items-center gap-1 cursor-pointer"
-                >
-                  <Terminal className="w-3.5 h-3.5" />
-                  <span>Try Simulator ↓</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              
-              {/* Left Column: Context, Problem, Engineering (7 Cols) */}
-              <div className="lg:col-span-7 space-y-4">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
-                    {flagshipTraffic.title}
-                  </h3>
-                  <p className="text-sm text-[#E2E8F0] mt-1 font-medium">
-                    {flagshipTraffic.tagline}
-                  </p>
-                </div>
-
-                <p className="text-xs sm:text-sm text-[#949EAE] leading-relaxed">
-                  Traditional fixed-timer traffic controllers cause massive intersection delays by allocating green time blindly regardless of real queue backlogs. Developed for the Smart India Hackathon 2024, our system dynamically allocates green light durations based on live OpenCV vehicle counts.
-                </p>
-
-                <div className="space-y-2 pt-1">
-                  <span className="text-xs font-mono text-white uppercase tracking-wider block">
-                    Core Algorithmic Logic:
-                  </span>
-                  <ul className="space-y-2 text-xs sm:text-sm text-[#949EAE]">
-                    <li className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mt-2 shrink-0"></span>
-                      <span>
-                        <strong className="text-white">MOG2 Motion Segmentation:</strong> Ingests live intersection camera feeds and applies OpenCV Background Subtractor MOG2 with rectangular morphological structuring elements to isolate moving vehicle contours.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mt-2 shrink-0"></span>
-                      <span>
-                        <strong className="text-white">Proportional Density Ratio:</strong> Calculates lane priority via ratio: <code>allocation = round((count / total) * 100)</code>.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mt-2 shrink-0"></span>
-                      <span>
-                        <strong className="text-white">Safety Floors & Caps:</strong> Enforces a 10s minimum green clearance window and scales dynamically up to a 90s ceiling for congested bottleneck lanes. Standby mode gracefully zeros allocations when intersection load is zero.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Tech Pills */}
-                <div className="pt-2">
-                  <span className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider block mb-2">
-                    Verified Stack:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {flagshipTraffic.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-0.5 rounded text-xs font-mono bg-[#1A1F2C] border border-[#202534] text-[#E2E8F0]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Code & Mathematical Specs (5 Cols) */}
-              <div className="lg:col-span-5 bg-[#0C0E12] border border-[#202534] rounded-xl p-5 space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#202534] text-xs font-mono text-[#949EAE]">
-                  <span className="text-white font-medium flex items-center gap-1.5">
-                    <Terminal className="w-3.5 h-3.5 text-[#F59E0B]" />
-                    <span>Signal Engine (vs/app.py)</span>
-                  </span>
-                  <span>Python 3</span>
-                </div>
-
-                <pre className="p-3.5 rounded-lg bg-[#13161F] border border-[#202534] text-[11px] font-mono text-[#E2E8F0] overflow-x-auto leading-relaxed">
-{`# Proportional Allocation Logic (SIH '24)
-def calculate_proportional_green(densities):
-    total = sum(densities.values())
-    if total == 0:
-        return {k: 0 for k in densities}
-    
-    # Proportional split ratio
-    allocs = {
-        k: round((v / total) * 100)
-        for k, v in densities.items()
-    }
-    # Dynamic duration (10s min floor, 90s cap)
-    green_times = {
-        k: max(10, round((p / 100) * 90))
-        for k, p in allocs.items()
-    }
-    return allocs, green_times`}
-                </pre>
-
-                <div className="text-[11px] text-[#949EAE] leading-relaxed">
-                  Verified in SIH 2024 Level 2 judging. Tested under extreme lane density skew (95:5) and zero-traffic conditions.
-                </div>
-              </div>
-
-            </div>
-          </div>
-        )}
-
-        {/* ========================================================= */}
-        {/* Compact Secondary Case Studies (2-Column Grid)            */}
-        {/* ========================================================= */}
-        <div>
-          <div className="text-xs font-mono text-[#949EAE] uppercase tracking-wider mb-6 flex items-center gap-3">
-            <span>Specialized Research & Interactive VR Simulations</span>
-            <div className="flex-1 h-px bg-[#202534]" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {secondaryProjects.map((project) => (
-              <div
-                key={project.id}
-                className="editorial-card rounded-xl p-6 flex flex-col justify-between space-y-4"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono text-[#F59E0B] bg-[#1C1A14] border border-[#3E3219] px-2 py-0.5 rounded">
-                      {project.category}
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {flagshipTourist.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-[11px] bg-white border border-[#E5E1D8] px-2 py-0.5 text-[#5C6069]"
+                    >
+                      {tech}
                     </span>
-                    <span className="text-xs font-mono text-[#64748B]">
-                      {project.period || 'Academic Research'}
-                    </span>
-                  </div>
-
-                  <h4 className="text-lg font-bold font-display text-white">
-                    {project.title}
-                  </h4>
-
-                  <p className="text-xs sm:text-sm text-[#949EAE] leading-relaxed">
-                    {project.shortDescription}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {project.technologies.slice(0, 5).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 rounded text-[11px] font-mono bg-[#1A1F2C] text-[#CBD5E1] border border-[#202534]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
 
-                <div className="pt-4 border-t border-[#202534] flex items-center justify-between text-xs">
-                  <button
-                    onClick={() => setActiveModalProject(project)}
-                    className="font-mono text-white hover:text-[#F59E0B] flex items-center gap-1 cursor-pointer transition-colors"
-                  >
-                    <span>Read Case Summary</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
-
-                  {(project.github || project.githubUrl) && (
+                <div className="pt-4 flex flex-wrap gap-2.5">
+                  {flagshipTourist.github && (
                     <a
-                      href={project.github || project.githubUrl}
+                      href={flagshipTourist.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#949EAE] hover:text-white flex items-center gap-1 transition-colors"
+                      className="editorial-btn-outline !py-1.5 !px-3 !text-[11px]"
                     >
-                      <GithubIcon className="w-3.5 h-3.5" />
-                      <span>Code</span>
+                      <span>Repository ↗</span>
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setActiveModalProject(flagshipTourist)}
+                    className="editorial-btn-dark !py-1.5 !px-3 !text-[11px] cursor-pointer"
+                  >
+                    <span>Full Specifications →</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Right Narrative Column (7 Cols) */}
+              <div className="lg:col-span-7 space-y-4">
+                <p className="text-base text-[#121316] leading-relaxed">
+                  {flagshipTourist.summary}
+                </p>
+
+                <ul className="space-y-3 pt-2 text-sm text-[#5C6069]">
+                  {flagshipTourist.bulletPoints.map((item, idx) => (
+                    <li key={idx} className="pl-5 relative leading-relaxed">
+                      <span className="absolute left-0 text-[#9E3514] font-bold">—</span>
+                      <strong className="text-[#121316] font-medium">{item.lead}:</strong> {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+          </article>
+        )}
+
+        {/* ======================================================== */}
+        {/* Case Study 02: Traffic Signal Optimization               */}
+        {/* ======================================================== */}
+        {flagshipTraffic && (
+          <article className="pt-4 pb-8 border-b border-[#E5E1D8]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+              
+              {/* Left Meta Column (5 Cols) */}
+              <div className="lg:col-span-5 space-y-4">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#9E3514] font-semibold block">
+                  {flagshipTraffic.period} · Case Study 02
+                </span>
+                
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#121316] font-medium leading-tight">
+                  {flagshipTraffic.title}
+                </h3>
+
+                <span className="font-mono text-xs text-[#5C6069] uppercase tracking-wider block">
+                  {flagshipTraffic.category}
+                </span>
+
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {flagshipTraffic.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-[11px] bg-white border border-[#E5E1D8] px-2 py-0.5 text-[#5C6069]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="pt-2">
+                  <span className="font-mono text-[11px] text-[#9E3514] font-semibold uppercase tracking-wider">
+                    Smart India Hackathon 2024 — Level 2 Qualifier
+                  </span>
+                </div>
+
+                <div className="pt-4 flex flex-wrap gap-2.5">
+                  <a
+                    href="#simulator"
+                    className="editorial-btn-dark !py-1.5 !px-3 !text-[11px]"
+                  >
+                    <span>Test Algorithm ↓</span>
+                  </a>
+                  <button
+                    onClick={() => setActiveModalProject(flagshipTraffic)}
+                    className="editorial-btn-outline !py-1.5 !px-3 !text-[11px] cursor-pointer"
+                  >
+                    <span>Architecture Notes →</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Right Narrative Column (7 Cols) */}
+              <div className="lg:col-span-7 space-y-4">
+                <p className="text-base text-[#121316] leading-relaxed">
+                  {flagshipTraffic.summary}
+                </p>
+
+                <ul className="space-y-3 pt-2 text-sm text-[#5C6069]">
+                  {flagshipTraffic.bulletPoints.map((item, idx) => (
+                    <li key={idx} className="pl-5 relative leading-relaxed">
+                      <span className="absolute left-0 text-[#9E3514] font-bold">—</span>
+                      <strong className="text-[#121316] font-medium">{item.lead}:</strong> {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+
+            {/* ======================================================== */}
+            {/* Embedded Fig. 02: Interactive Scientific Test Bench      */}
+            {/* ======================================================== */}
+            <div id="simulator" className="mt-12 bg-white border border-[#E5E1D8] p-6 sm:p-8 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 border-b border-[#E5E1D8] gap-2 mb-6">
+                <div>
+                  <span className="font-mono text-[10px] text-[#9E3514] uppercase tracking-wider block font-semibold">
+                    Fig. 02 — Interactive Algorithmic Test Bench
+                  </span>
+                  <h4 className="font-serif text-xl sm:text-2xl text-[#121316] font-medium mt-0.5">
+                    Proportional Signal Allocation Verification
+                  </h4>
+                </div>
+                <div className="font-mono text-xs text-[#5C6069]">
+                  Formula: <code>GreenTime = max(10, round(Density / Total × 90))</code>
+                </div>
+              </div>
+
+              {/* 4 Corridor Sliders Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                {corridors.map((c) => {
+                  const density = densities[c.key];
+                  const alloc = allocations[c.key];
+                  const sec = greenTimes[c.key];
+                  const isActive = activeLane === c.key;
+
+                  return (
+                    <div
+                      key={c.key}
+                      className={`p-4 border transition-all ${
+                        isActive
+                          ? 'border-[#9E3514] bg-white shadow-sm'
+                          : 'border-[#E5E1D8] bg-[#FAF8F5]'
+                      }`}
+                    >
+                      <span className={`font-mono text-[10px] uppercase tracking-wider block mb-1 ${
+                        isActive ? 'text-[#9E3514] font-semibold' : 'text-[#5C6069]'
+                      }`}>
+                        {isActive ? `PRIORITY · ${c.tag}` : c.tag}
+                      </span>
+                      <div className="font-semibold text-sm text-[#121316] mb-3">
+                        {c.name}
+                      </div>
+
+                      <div className="flex justify-between font-mono text-xs text-[#5C6069] mb-1.5">
+                        <span>Density</span>
+                        <span className={`font-semibold ${isActive ? 'text-[#9E3514]' : 'text-[#121316]'}`}>
+                          {density}
+                        </span>
+                      </div>
+
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={density}
+                        onChange={(e) => handleSlider(c.key, e.target.value)}
+                        className="w-full h-1 bg-[#E5E1D8] accent-[#9E3514] cursor-pointer"
+                        aria-label={`Density slider for ${c.name}`}
+                      />
+
+                      <div className="mt-3 pt-2 border-t border-[#E5E1D8] font-mono text-xs flex justify-between">
+                        <span className="text-[#5C6069]">Signal Duration</span>
+                        <span className={`font-semibold ${isActive ? 'text-[#9E3514]' : 'text-[#121316]'}`}>
+                          {alloc}% ({sec}s)
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Test Bench Footer & Presets */}
+              <div className="pt-4 border-t border-[#E5E1D8] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs text-[#5C6069]">
+                <div>
+                  Total Simulated Load: <strong className="text-[#121316]">{total} vehicles</strong> across intersection
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={setSurge}
+                    className="px-2.5 py-1 bg-transparent border border-[#E5E1D8] text-[10px] uppercase tracking-wider text-[#121316] hover:bg-[#121316] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Rush Surge
+                  </button>
+                  <button
+                    onClick={setBalanced}
+                    className="px-2.5 py-1 bg-transparent border border-[#E5E1D8] text-[10px] uppercase tracking-wider text-[#121316] hover:bg-[#121316] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Balanced (40)
+                  </button>
+                  <button
+                    onClick={setBottleneck}
+                    className="px-2.5 py-1 bg-transparent border border-[#E5E1D8] text-[10px] uppercase tracking-wider text-[#121316] hover:bg-[#121316] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Bottleneck (95)
+                  </button>
+                  <button
+                    onClick={setZero}
+                    className="px-2.5 py-1 bg-transparent border border-[#E5E1D8] text-[10px] uppercase tracking-wider text-[#121316] hover:bg-[#121316] hover:text-white transition-colors cursor-pointer"
+                  >
+                    Zero (Standby)
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </article>
+        )}
+
+        {/* ======================================================== */}
+        {/* Secondary Project Works (Curated Table)                  */}
+        {/* ======================================================== */}
+        <div>
+          <span className="font-mono text-xs uppercase tracking-wider text-[#5C6069] block mb-4">
+            Curated Research & Spatial Prototypes
+          </span>
+
+          <div className="border-t border-[#E5E1D8]">
+            {secondaryProjects.map((p) => (
+              <div
+                key={p.id}
+                className="py-5 border-b border-[#E5E1D8] flex flex-col sm:flex-row sm:items-baseline justify-between gap-3"
+              >
+                <div className="space-y-1">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-[#9E3514] font-semibold">
+                      {p.number}
+                    </span>
+                    <h4 className="font-serif text-lg font-medium text-[#121316]">
+                      {p.title}
+                    </h4>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#5C6069] max-w-2xl leading-relaxed">
+                    {p.summary || p.tagline}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3 shrink-0 pt-1 sm:pt-0">
+                  <button
+                    onClick={() => setActiveModalProject(p)}
+                    className="font-mono text-xs text-[#121316] hover:text-[#9E3514] flex items-center gap-1 cursor-pointer transition-colors"
+                  >
+                    <span>Read Summary →</span>
+                  </button>
+                  {p.github && (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-xs text-[#5C6069] hover:text-[#121316] transition-colors"
+                    >
+                      <span>Code ↗</span>
                     </a>
                   )}
                 </div>
@@ -385,7 +402,7 @@ def calculate_proportional_green(densities):
 
       </div>
 
-      {/* Case Study Deep-Dive Modal */}
+      {/* Modal for Deep Project Inspection */}
       <ProjectModal
         project={activeModalProject}
         onClose={() => setActiveModalProject(null)}
