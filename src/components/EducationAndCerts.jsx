@@ -85,7 +85,7 @@ export default function EducationAndCerts() {
             <div className="space-y-4">
               {certificationsData.map((cert) => (
                 <div
-                  key={cert.name}
+                  key={cert.title || cert.credentialId}
                   className="p-5 rounded-2xl obsidian-card hover:-translate-y-1 transition-all duration-300 border border-[#1B202D] hover:border-[#A855F7]/40 space-y-2 group"
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -101,7 +101,7 @@ export default function EducationAndCerts() {
                         )}
                       </div>
                       <h4 className="text-sm font-bold text-white group-hover:text-[#D4FF00] transition-colors mt-1.5">
-                        {cert.name}
+                        {cert.title}
                       </h4>
                     </div>
 
@@ -111,7 +111,7 @@ export default function EducationAndCerts() {
                   </div>
 
                   <p className="text-xs text-[#94A3B8] leading-relaxed">
-                    {cert.description}
+                    {cert.highlight || cert.description}
                   </p>
 
                   {cert.score && (

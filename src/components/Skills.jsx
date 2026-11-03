@@ -99,14 +99,19 @@ export default function Skills() {
 
                   {/* Skills List */}
                   <div className="flex flex-wrap gap-2 pt-4">
-                    {category.items.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2.5 py-1 rounded-lg bg-[#0C0E14] border border-[#1B202D] text-xs font-mono text-[#CBD5E1] group-hover:border-[#D4FF00]/20 hover:text-[#D4FF00] transition-colors"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                    {category.items.map((skill) => {
+                      const skillName = typeof skill === 'object' ? skill.name : skill;
+                      const skillContext = typeof skill === 'object' ? skill.context : null;
+                      return (
+                        <span
+                          key={skillName}
+                          title={skillContext || skillName}
+                          className="px-2.5 py-1 rounded-lg bg-[#0C0E14] border border-[#1B202D] text-xs font-mono text-[#CBD5E1] group-hover:border-[#D4FF00]/20 hover:text-[#D4FF00] transition-colors cursor-default"
+                        >
+                          {skillName}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
 
